@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "150122230709",
+    "project_id": "flutterturizmdb",
+    "storage_bucket": "flutterturizmdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150122230709:android:453fd51ee47051ae2f9ffc",
+        "android_client_info": {
+          "package_name": "com.codenuhcan.flutterturizm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150122230709-299ohojjci3fpn7e8c19o33v8hv8lknr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codenuhcan.flutterturizm",
+            "certificate_hash": "cb36e74ed4bb1fb0ac5bd4e085b50785ad4f7a39"
+          }
+        },
+        {
+          "client_id": "150122230709-oelvo693e0emgr93skb0ftful60n1vvr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2dRxCTnZlFfjdVj8uMQHDS65lhNd8l5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150122230709-oelvo693e0emgr93skb0ftful60n1vvr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "150122230709-u1p12do0dli8injg0ti73qmoq6l1qs42.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.codenuhcan.flutterturizm"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
