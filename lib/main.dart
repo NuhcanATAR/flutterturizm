@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterturizm/feature/splash/splash_view.dart';
 import 'package:flutterturizm/product/bloc/logregpass_bloc/login_bloc/cubit/cubit.dart';
+import 'package:flutterturizm/product/bloc/logregpass_bloc/password_bloc/cubit/cubit.dart';
 import 'package:flutterturizm/product/bloc/logregpass_bloc/register_bloc/cubit/cubit.dart';
 import 'package:flutterturizm/product/initialize/app_start.dart';
 
@@ -15,6 +16,9 @@ void main() async {
         ),
         BlocProvider<AuthSignInUpCubit>(
           create: (BuildContext context) => AuthSignInUpCubit(),
+        ),
+        BlocProvider<AuthPasswordCubit>(
+          create: (BuildContext context) => AuthPasswordCubit(),
         ),
       ],
       child: const MyApp(),
