@@ -63,6 +63,7 @@ abstract class MainLoginBase<T extends StatefulWidget> extends State<T>
   // control auth splash view
   void controlSplashGoogleAuthUser() async {
     final userCredential = FirebaseAuth.instance.currentUser?.uid;
+
     userCredential != null
         ? Future.delayed(
             const Duration(
