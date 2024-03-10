@@ -25,6 +25,7 @@ class RegisterEmailInputWidget extends StatelessWidget {
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         controller: registerModelService.emailController,
+        validator: registerModelService.emailValidator,
         style: GoogleFonts.nunito(
           textStyle: context.general.textTheme.labelMedium?.copyWith(
             color: Colors.black,

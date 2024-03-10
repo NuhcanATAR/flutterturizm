@@ -37,6 +37,7 @@ class _LoginPasswordInputWidgetState extends State<LoginPasswordInputWidget> {
           ),
         ),
         controller: widget.loginModelService.passwordController,
+        validator: widget.loginModelService.passwordValidator,
         decoration: InputDecoration(
           border: InputBorder.none,
           icon: const Icon(

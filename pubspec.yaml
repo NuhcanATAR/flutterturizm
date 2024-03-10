@@ -52,6 +52,7 @@ dependencies:
   data_connection_checker_nulls: ^0.0.2
   cached_network_image: ^3.3.1
   http: ^0.13.6
+  intl_phone_field: ^3.2.0
   
 
 

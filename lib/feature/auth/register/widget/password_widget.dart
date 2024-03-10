@@ -26,6 +26,7 @@ class RegisterPasswordInputWidget extends StatelessWidget {
         obscureText: true,
         keyboardType: TextInputType.visiblePassword,
         controller: registerModelService.passwordController,
+        validator: registerModelService.passwordValidator,
         style: GoogleFonts.nunito(
           textStyle: context.general.textTheme.labelMedium?.copyWith(
             color: Colors.black,

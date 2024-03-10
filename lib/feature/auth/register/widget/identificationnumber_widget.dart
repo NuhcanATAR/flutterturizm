@@ -25,6 +25,7 @@ class RegiterIdentificationNumberInputWidget extends StatelessWidget {
       child: TextFormField(
         keyboardType: TextInputType.number,
         controller: registerModelService.identificationNumberController,
+        validator: registerModelService.identificationIDValidator,
         style: GoogleFonts.nunito(
           textStyle: context.general.textTheme.labelMedium?.copyWith(
             color: Colors.black,

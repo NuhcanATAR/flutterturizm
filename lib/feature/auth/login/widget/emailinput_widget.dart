@@ -30,6 +30,7 @@ class LoginEmailInputWidget extends StatelessWidget {
           ),
         ),
         controller: loginModelService.emailController,
+        validator: loginModelService.emailValidator,
         decoration: InputDecoration(
           border: InputBorder.none,
           icon: const Icon(

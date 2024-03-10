@@ -6,13 +6,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterturizm/feature/auth/login/view/loginloading_view.dart';
 import 'package:flutterturizm/feature/auth/logreg/logreg_view.dart';
 import 'package:flutterturizm/product/bloc/logregpass_bloc/login_bloc/cubit/cubit.dart';
-import 'package:flutterturizm/product/constant/color_constant.dart';
-import 'package:flutterturizm/product/enums/logregpass_enums/login_enum/login_enum.dart';
 import 'package:flutterturizm/product/extension/view_extension.dart';
 import 'package:flutterturizm/product/mixin/logregpass_mixin/login_mixin/login_mixin.dart';
 import 'package:flutterturizm/product/model/auth_model/login_model/login_model.dart';
 import 'package:flutterturizm/product/router/auth_router/login_router/login_router.dart';
-import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
 
 abstract class MainLoginBase<T extends StatefulWidget> extends State<T>
     with AuthSingInBlocMixin {
@@ -32,26 +29,11 @@ abstract class MainLoginBase<T extends StatefulWidget> extends State<T>
 
   // email & password login
   void loginEmailAndPasswordAuth() {
-    if (loginModelService.emailController.text.isNotEmpty ||
-        loginModelService.passwordController.text.isNotEmpty) {
+    if (loginModelService.formLoginKey.currentState!.validate()) {
       BlocProvider.of<AuthSignInCubit>(context).emailPasswordSingIn(
         loginModelService.emailController.text,
         loginModelService.passwordController.text,
       );
-    } else {
-      final snackBar = SnackBar(
-        backgroundColor: MainAppColorConstants.blueMainColor,
-        content: LabelMediumWhiteText(
-          text: LoginViewStrings.loginValidatorText.value,
-          textAlign: TextAlign.left,
-        ),
-        action: SnackBarAction(
-          label: "Tamam",
-          onPressed: () {},
-          textColor: Colors.white,
-        ),
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
   }
 

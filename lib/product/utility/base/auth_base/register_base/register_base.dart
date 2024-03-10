@@ -74,54 +74,55 @@ abstract class MainRegisterBase<T extends StatefulWidget> extends State<T>
 
   // user register
   void registerUser() {
-    final registerModel = registerModelService;
+    if (registerModelService.formRegisterKey.currentState!.validate()) {
+      final registerModel = registerModelService;
 
-    if (registerModel.formRegisterKey.currentState!.validate()) {
-      final name = registerModel.nameController.text;
-      final surname = registerModel.surnameController.text;
-      final idNumber = registerModel.identificationNumberController.text;
-      final phoneNumber = registerModel.phoneNumberController.text;
-      final email = registerModel.emailController.text;
-      final password = registerModel.passwordController.text;
-      final passwordAgain = registerModel.passwordAgainController.text;
+      if (registerModel.formRegisterKey.currentState!.validate()) {
+        final name = registerModel.nameController.text;
+        final surname = registerModel.surnameController.text;
+        final idNumber = registerModel.identificationNumberController.text;
+        final phoneNumber = registerModel.phoneNumberController.text;
+        final email = registerModel.emailController.text;
+        final password = registerModel.passwordController.text;
+        final passwordAgain = registerModel.passwordAgainController.text;
 
-      if (name.isNotEmpty &&
-          surname.isNotEmpty &&
-          idNumber.isNotEmpty &&
-          phoneNumber.isNotEmpty &&
-          email.isNotEmpty &&
-          password.isNotEmpty &&
-          passwordAgain.isNotEmpty) {
-        if (password == passwordAgain) {
-          if (idNumber.length < 11) {
-            showSnackBar(
-                context, RegisterViewStrings.identificationIDErrorText.value);
-          } else if (phoneNumber.length < 10) {
-            showSnackBar(
-                context, RegisterViewStrings.phoneNumberErrorText.value);
+        if (name.isNotEmpty &&
+            surname.isNotEmpty &&
+            idNumber.isNotEmpty &&
+            phoneNumber.isNotEmpty &&
+            email.isNotEmpty &&
+            password.isNotEmpty &&
+            passwordAgain.isNotEmpty) {
+          if (password == passwordAgain) {
+            if (phoneNumber.length < 10) {
+              showSnackBar(
+                  context, RegisterViewStrings.phoneNumberErrorText.value);
+            } else {
+              final gender = registerModel.genderType == GenderType.men
+                  ? "Erkek"
+                  : "Kadın";
+              BlocProvider.of<AuthSignInUpCubit>(context).signInUp(
+                name,
+                surname,
+                email,
+                password,
+                int.parse(idNumber),
+                registerModel.selectCity.toString(),
+                registerModel.selectDistrict.toString(),
+                int.parse(phoneNumber),
+                registerModel.dateOfBirth.day,
+                registerModel.dateOfBirth.month,
+                registerModel.dateOfBirth.year,
+                gender,
+              );
+            }
           } else {
-            final gender =
-                registerModel.genderType == GenderType.men ? "Erkek" : "Kadın";
-            BlocProvider.of<AuthSignInUpCubit>(context).signInUp(
-              name,
-              surname,
-              email,
-              password,
-              int.parse(idNumber),
-              registerModel.selectCity.toString(),
-              registerModel.selectDistrict.toString(),
-              int.parse(phoneNumber),
-              registerModel.dateOfBirth.day,
-              registerModel.dateOfBirth.month,
-              registerModel.dateOfBirth.year,
-              gender,
-            );
+            showSnackBar(context, RegisterViewStrings.passwordErrorText.value);
           }
         } else {
-          showSnackBar(context, RegisterViewStrings.passwordErrorText.value);
+          showSnackBar(
+              context, RegisterViewStrings.registerFormErrorText.value);
         }
-      } else {
-        showSnackBar(context, RegisterViewStrings.registerFormErrorText.value);
       }
     }
   }
