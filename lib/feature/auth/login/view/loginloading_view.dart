@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterturizm/feature/main/bottommenu/bottommenu_view.dart';
 import 'package:flutterturizm/product/constant/color_constant.dart';
 import 'package:flutterturizm/product/widget/text_widget/body_medium_text.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
@@ -9,6 +10,17 @@ class LoginLoadingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(
+        const Duration(
+          seconds: 4,
+        ), () {
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const BottomMenuView(),
+          ),
+          (Route<dynamic> route) => false);
+    });
     return Scaffold(
       backgroundColor: MainAppColorConstants.backgroundColor,
       body: Center(
