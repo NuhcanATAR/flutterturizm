@@ -1,11 +1,14 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
-import 'package:flutterturizm/feature/main/bottommenu/bottommenu_view.dart';
 import 'package:flutterturizm/product/constant/color_constant.dart';
+import 'package:flutterturizm/product/mixin/logregpass_mixin/login_mixin/loginloading_mixin.dart';
 import 'package:flutterturizm/product/widget/text_widget/body_medium_text.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-class LoginLoadingView extends StatelessWidget {
+class LoginLoadingView extends StatelessWidget
+    with LoginLoadingRouterViewMixin {
   const LoginLoadingView({super.key});
 
   @override
@@ -14,12 +17,7 @@ class LoginLoadingView extends StatelessWidget {
         const Duration(
           seconds: 4,
         ), () {
-      Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const BottomMenuView(),
-          ),
-          (Route<dynamic> route) => false);
+      loginLoadingControl(context);
     });
     return Scaffold(
       backgroundColor: MainAppColorConstants.backgroundColor,

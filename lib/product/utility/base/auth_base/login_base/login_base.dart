@@ -3,7 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutterturizm/feature/auth/login/view/loginloading_view.dart';
+import 'package:flutterturizm/feature/auth/login/view/loginloading/loginloading_view.dart';
 import 'package:flutterturizm/feature/auth/logreg/logreg_view.dart';
 import 'package:flutterturizm/product/bloc/logregpass_bloc/login_bloc/cubit/cubit.dart';
 import 'package:flutterturizm/product/extension/view_extension.dart';
