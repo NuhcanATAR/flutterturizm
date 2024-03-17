@@ -127,6 +127,42 @@ abstract class MainRegisterBase<T extends StatefulWidget> extends State<T>
     }
   }
 
+  void registerComplete() {
+    if (registerModelService.formRegisterKey.currentState!.validate()) {
+      final registerModel = registerModelService;
+
+      if (registerModel.formRegisterKey.currentState!.validate()) {
+        final name = registerModel.nameController.text;
+        final surname = registerModel.surnameController.text;
+        final idNumber = registerModel.identificationNumberController.text;
+        final phoneNumber = registerModel.phoneNumberController.text;
+
+        if (name.isNotEmpty &&
+            surname.isNotEmpty &&
+            idNumber.isNotEmpty &&
+            phoneNumber.isNotEmpty) {
+          final gender =
+              registerModel.genderType == GenderType.men ? "Erkek" : "Kadın";
+          BlocProvider.of<AuthSignInUpCubit>(context).registerComplete(
+            name,
+            surname,
+            int.parse(idNumber),
+            registerModel.selectCity.toString(),
+            registerModel.selectDistrict.toString(),
+            int.parse(phoneNumber),
+            registerModel.dateOfBirth.day,
+            registerModel.dateOfBirth.month,
+            registerModel.dateOfBirth.year,
+            gender,
+          );
+        } else {
+          showSnackBar(
+              context, RegisterViewStrings.registerFormErrorText.value);
+        }
+      }
+    }
+  }
+
   void showSnackBar(BuildContext context, String message) {
     final snackBar = SnackBar(
       backgroundColor: MainAppColorConstants.blueMainColor,

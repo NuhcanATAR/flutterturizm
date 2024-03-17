@@ -8,7 +8,7 @@ class LabelMediumBlackText extends StatelessWidget {
       {required this.text, required this.textAlign, super.key});
 
   final String text;
-  final dynamic textAlign;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class LabelMediumMainColorText extends StatelessWidget {
       {required this.text, required this.textAlign, super.key});
 
   final String text;
-  final dynamic textAlign;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class LabelMediumWhiteText extends StatelessWidget {
       {required this.text, required this.textAlign, super.key});
 
   final String text;
-  final dynamic textAlign;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,7 @@ class LabelMediumWhiteBoldText extends StatelessWidget {
       {required this.text, required this.textAlign, super.key});
 
   final String text;
-  final dynamic textAlign;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +93,7 @@ class LabelMediumGreyText extends StatelessWidget {
       {required this.text, required this.textAlign, super.key});
 
   final String text;
-  final dynamic textAlign;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +114,7 @@ class LabelMediumBlackBoldText extends StatelessWidget {
       {required this.text, required this.textAlign, super.key});
 
   final String text;
-  final dynamic textAlign;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +136,7 @@ class LabelMediumRedText extends StatelessWidget {
       {required this.text, required this.textAlign, super.key});
 
   final String text;
-  final dynamic textAlign;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {

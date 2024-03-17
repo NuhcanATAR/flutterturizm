@@ -44,6 +44,7 @@ class AuthSignInUpCubit extends Cubit<SignInUpMainState> {
         "DATEOFBIRTH":
             "${dateOfBirthDay.toString()}.${dateOfBirthMonth.toString()}.${dateOfBithYear.toString()}",
         "GENDER": genderType,
+        "AUTHTYPE": "EMAILAUTH",
       });
 
       User? userAuth = userCredential.user;
@@ -68,6 +69,43 @@ class AuthSignInUpCubit extends Cubit<SignInUpMainState> {
           AuthSignInUpError(RegisterViewStrings.registerErrorText.value),
         );
       }
+    }
+  }
+
+  // register complete
+  Future<void> registerComplete(
+    String name,
+    String surname,
+    int identificationID,
+    String city,
+    String district,
+    int phoneNumber,
+    int dateOfBirthDay,
+    int dateOfBirthMonth,
+    int dateOfBithYear,
+    String genderType,
+  ) async {
+    emit(AuthSignInUpLoading());
+    try {
+      await RegisterDB.USERS.userRef.set({
+        "ID": FirebaseService().userID,
+        "NAME": name,
+        "SURNAME": surname,
+        "IDENTIFICATIONNUMBER": identificationID,
+        "CITY": city,
+        "DISTRICT": district,
+        "PHONENUMBER": phoneNumber,
+        "DATEOFBIRTH":
+            "${dateOfBirthDay.toString()}.${dateOfBirthMonth.toString()}.${dateOfBithYear.toString()}",
+        "GENDER": genderType,
+        "AUTHTYPE": "GOOGLEAUTH",
+      });
+
+      emit(AuthSignInUpSuccess(RegisterViewStrings.registerSuccessText.value));
+    } catch (e) {
+      emit(
+        AuthSignInUpError(RegisterViewStrings.registerErrorText.value),
+      );
     }
   }
 }
