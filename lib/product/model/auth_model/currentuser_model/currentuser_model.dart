@@ -1,8 +1,6 @@
 class CurrentUserModel {
-  final String uid;
-  final String email;
-  final String password;
+  final String name;
+  final String surname;
 
-  CurrentUserModel(
-      {required this.uid, required this.email, this.password = ''});
+  CurrentUserModel({required this.name, required this.surname});
 }
