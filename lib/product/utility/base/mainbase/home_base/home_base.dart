@@ -6,6 +6,7 @@ import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:flutterturizm/product/model/auth_model/currentuser_model/currentuser_model.dart';
 import 'package:flutterturizm/product/model/main_model/home_model/home_model.dart';
 import 'package:flutterturizm/product/model/main_model/home_model/homeadverts_model.dart';
+import 'package:flutterturizm/product/router/main_router/home_router/home_router.dart';
 import 'package:flutterturizm/product/utility/database/mainviews_db/home_db/home_db.dart';
 import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
 import 'package:flutterturizm/product/utility/exception/firebase_exception/firebase_exception.dart';
@@ -14,6 +15,9 @@ import 'package:flutterturizm/product/utility/service/citydistrict_service/cityd
 abstract class MainHomeBase<T extends StatefulWidget> extends State<T> {
   // model service
   HomeModelService homeModelService = HomeModelService();
+
+  // router service
+  HomeRouterService routerService = HomeRouterService();
 
   // extension
   DynamicViewExtensions dynamicViewExtensions = DynamicViewExtensions();

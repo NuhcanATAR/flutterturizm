@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutterturizm/product/bloc/mainview_bloc/tickets_bloc/cubit/ticket_cubit.dart';
 import 'package:flutterturizm/product/constant/color_constant.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/tickets_model.dart';
 import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
@@ -12,13 +14,11 @@ class TicketFilterCardWidget extends StatefulWidget {
     required this.dynamicViewExtensions,
     required this.modelService,
     required this.selectTicketDate,
-    required this.fetchTickets,
   });
 
   final DynamicViewExtensions dynamicViewExtensions;
   final TicketsModelService modelService;
   final dynamic selectTicketDate;
-  final dynamic fetchTickets;
 
   @override
   State<TicketFilterCardWidget> createState() => _TicketFilterCardWidgetState();
@@ -213,8 +213,11 @@ class _TicketFilterCardWidgetState extends State<TicketFilterCardWidget> {
   // filter list button
   Widget buildFilterListButtonWidget(BuildContext context) => GestureDetector(
         onTap: () {
-          widget.modelService.ticketsList.clear();
-          widget.fetchTickets(widget.modelService);
+          context.read<TicketsCubit>().fetchTickets(
+                widget.modelService.selectStartCity.toString(),
+                widget.modelService.selectEndCity.toString(),
+                widget.modelService.ticketDate,
+              );
         },
         child: Padding(
           padding: context.padding.verticalLow,

@@ -1,17 +1,19 @@
-import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
+import 'package:flutterturizm/product/model/auth_model/currentuser_model/currentuser_model.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/tickets_model.dart';
-import 'package:flutterturizm/product/model/main_model/tickets_model/ticketslist_model.dart';
+import 'package:flutterturizm/product/router/main_router/ticket_router/ticket_router.dart';
+import 'package:flutterturizm/product/utility/database/mainviews_db/home_db/home_db.dart';
 import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
 import 'package:flutterturizm/product/utility/service/citydistrict_service/citydistrict_service.dart';
-import 'package:http/http.dart' as http;
 
 abstract class MainTicketsBase<T extends StatefulWidget> extends State<T> {
   // model service
   TicketsModelService modelService = TicketsModelService();
+
+  // router service
+  TicketRouterService routerService = TicketRouterService();
 
   // extension
   DynamicViewExtensions dynamicViewExtensions = DynamicViewExtensions();
@@ -19,7 +21,6 @@ abstract class MainTicketsBase<T extends StatefulWidget> extends State<T> {
   @override
   void initState() {
     super.initState();
-
     getCityDistrictApi();
   }
 
@@ -36,6 +37,15 @@ abstract class MainTicketsBase<T extends StatefulWidget> extends State<T> {
         print('Error: $e');
       }
     }
+  }
+
+  // get user information
+  Future<CurrentUserModel> getUserInformation() async {
+    final userRefCollection = await HomeDB.USERS.userRef;
+    final userName = userRefCollection['NAME'];
+    final userSurname = userRefCollection['SURNAME'];
+
+    return CurrentUserModel(name: userName, surname: userSurname);
   }
 
   // ticket date
@@ -57,39 +67,5 @@ abstract class MainTicketsBase<T extends StatefulWidget> extends State<T> {
       currentTime: DateTime.now(),
       locale: LocaleType.tr,
     );
-  }
-
-  Future<void> fetchTickets(TicketsModelService modelService) async {
-    final response = await http.post(
-      modelService.ticketsListUrl,
-      body: {
-        'takeOffCity': modelService.selectStartCity,
-        'arrivalCity': modelService.selectEndCity,
-        'ticketDate':
-            "${modelService.ticketDate.year}-${modelService.ticketDate.month}-${modelService.ticketDate.day}",
-      },
-    );
-
-    if (response.statusCode == 200) {
-      List<dynamic> jsonList = json.decode(response.body);
-
-      if (jsonList.isNotEmpty) {
-        List<Tickets> tempTicketsList = [];
-        for (var jsonTicket in jsonList) {
-          tempTicketsList.add(Tickets.fromJson(jsonTicket));
-        }
-
-        setState(() {
-          modelService.ticketsList = tempTicketsList;
-        });
-      } else {
-        if (!mounted) return;
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Biletler bulunamadı!'),
-        ));
-      }
-    } else {
-      throw Exception('Failed to load tickets');
-    }
   }
 }

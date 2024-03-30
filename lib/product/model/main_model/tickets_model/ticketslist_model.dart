@@ -1,46 +1,45 @@
 class Tickets {
-  String? id;
-  String? busId;
-  String? takeOffCity;
-  String? arrivalCity;
+  int? id;
+  int? busId;
+  String? travelStatus;
+  String? takeOff;
+  String? arrival;
   String? ticketType;
-  String? ticketFee;
-  String? salesStatus;
-  String? date;
+  int? ticketPrice;
+  String? createDate;
 
   Tickets({
     this.id,
     this.busId,
-    this.takeOffCity,
-    this.arrivalCity,
+    this.travelStatus,
+    this.takeOff,
+    this.arrival,
     this.ticketType,
-    this.ticketFee,
-    this.salesStatus,
-    this.date,
+    this.ticketPrice,
+    this.createDate,
   });
 
   Tickets.fromJson(Map<String, dynamic> json) {
     id = json['ID'];
     busId = json['BUSID'];
-    takeOffCity = json['TAKEOFF'];
-    arrivalCity = json['ARRIVAL'];
+    travelStatus = json['TRAVELSTATUS'];
+    takeOff = json['TAKEOFF'];
+    arrival = json['ARRIVAL'];
     ticketType = json['TICKETTYPE'];
-    ticketFee = json['TICKETFEE'];
-    salesStatus = json['SALESSTATUS'];
-    date = json['DATE'];
+    ticketPrice = json['TICKETPRICE'];
+    createDate = json['CREATEDATE'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['ID'] = id;
     data['BUSID'] = busId;
-    data['TAKEOFF'] = takeOffCity;
-    data['ARRIVAL'] = arrivalCity;
+    data['TRAVELSTATUS'] = travelStatus;
+    data['TAKEOFF'] = takeOff;
+    data['ARRIVAL'] = arrival;
     data['TICKETTYPE'] = ticketType;
-    data['TICKETFEE'] = ticketFee;
-    data['SALESSTATUS'] = salesStatus;
-    data['DATE'] = date;
-
+    data['TICKETPRICE'] = ticketPrice;
+    data['CREATEDATE'] = createDate;
     return data;
   }
 }

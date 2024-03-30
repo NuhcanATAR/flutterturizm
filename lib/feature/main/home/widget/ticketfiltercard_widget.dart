@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterturizm/feature/main/home/widget/dateinput_widget.dart';
 import 'package:flutterturizm/feature/main/home/widget/endlocation_widget.dart';
 import 'package:flutterturizm/feature/main/home/widget/filtercardtitle_widget.dart';
 import 'package:flutterturizm/feature/main/home/widget/startinglocation_widget.dart';
 import 'package:flutterturizm/feature/main/home/widget/ticketfilterbtn_widget.dart';
+import 'package:flutterturizm/product/bloc/mainview_bloc/tickets_bloc/cubit/ticket_cubit.dart';
 import 'package:flutterturizm/product/constant/color_constant.dart';
 import 'package:flutterturizm/product/model/main_model/home_model/home_model.dart';
-import 'package:flutterturizm/product/utility/base/mainbase/home_base/home_base.dart';
+import 'package:flutterturizm/product/utility/base/mainbase/tickets_base/tickets_base.dart';
 import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
 import 'package:kartal/kartal.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -30,7 +32,7 @@ class HomeTicketFilterCardWidget extends StatefulWidget {
 }
 
 class _HomeTicketFilterCardWidgetState
-    extends MainHomeBase<HomeTicketFilterCardWidget> {
+    extends MainTicketsBase<HomeTicketFilterCardWidget> {
   @override
   Widget build(BuildContext context) {
     return widget.homeModelService.cityDistricts == null
@@ -125,23 +127,30 @@ class _HomeTicketFilterCardWidgetState
 
   // starting location
   Widget get buildStartingLocationWidget => FilterCardStartingLocationWidget(
-        homeModelService: homeModelService,
+        homeModelService: modelService,
       );
 
   // end location
   Widget get buildEndLocationWidget => FilterCardEndLocationWidget(
-        homeModelService: homeModelService,
+        homeModelService: modelService,
       );
 
   // date
   Widget get buildDateWidget => FilterCardDateInputWidget(
         selectTicketDate: selectTicketDate,
         dynamicViewExtensions: dynamicViewExtensions,
-        homeModelService: homeModelService,
+        homeModelService: modelService,
       );
 
   // ticket filter button
   Widget get buildTicketFilterButtonWidget => TicketFilterButtonWidget(
         dynamicViewExtensions: dynamicViewExtensions,
+        modelService: modelService,
+        fetchTickets: context.read<TicketsCubit>().fetchTickets(
+              modelService.selectStartCity.toString(),
+              modelService.selectEndCity.toString(),
+              modelService.ticketDate,
+            ),
+        routerService: routerService,
       );
 }

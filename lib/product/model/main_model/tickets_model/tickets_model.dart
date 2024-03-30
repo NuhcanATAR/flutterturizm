@@ -1,13 +1,18 @@
+import 'package:flutterturizm/product/model/main_model/tickets_model/ticketdateslist_model.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/ticketslist_model.dart';
 
 class TicketsModelService {
-  late List<Tickets> ticketsList = [];
+  List<Tickets> ticketList = [];
+  late List<TicketDates> ticketDatesList = [];
 
-  final Uri ticketsListUrl = Uri.parse(
-    'http://192.168.1.103/flutterturizmbackend_service/tickets/ticketslist.php',
+  final String ticketsListUrl = "http://192.168.1.103:3000/api/ticketList";
+
+  final Uri ticketDatesUrl = Uri.parse(
+    'http://192.168.1.103/flutterturizmbackend_service/tickets/ticketdatelist.php',
   );
 
-  late List<Tickets> tempTicketsList = [];
+  late bool isTicketLoading;
+  late bool isTicketDateLoading;
 
   // city distirct service
   Map<String, List<String>>? cityDistricts;

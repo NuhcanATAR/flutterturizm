@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterturizm/product/model/main_model/home_model/home_model.dart';
+import 'package:flutterturizm/product/model/main_model/tickets_model/tickets_model.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
 import 'package:kartal/kartal.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -10,7 +10,7 @@ class FilterCardEndLocationWidget extends StatefulWidget {
     required this.homeModelService,
   });
 
-  final HomeModelService homeModelService;
+  final TicketsModelService homeModelService;
 
   @override
   State<FilterCardEndLocationWidget> createState() =>

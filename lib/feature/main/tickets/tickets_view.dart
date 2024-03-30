@@ -41,11 +41,11 @@ class _TicketsViewState extends MainTicketsBase<TicketsView> {
         dynamicViewExtensions: dynamicViewExtensions,
         modelService: modelService,
         selectTicketDate: selectTicketDate,
-        fetchTickets: fetchTickets,
       );
 
   // ticket list
   Widget get buildTicketListWidget => FilterTicketListWidget(
         modelService: modelService,
+        routerService: routerService,
       );
 }
