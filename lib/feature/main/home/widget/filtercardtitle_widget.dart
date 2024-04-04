@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterturizm/product/enums/main_enums/home_enum/home_enum.dart';
 import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
 import 'package:flutterturizm/product/widget/text_widget/body_medium_text.dart';
 import 'package:kartal/kartal.dart';
@@ -20,9 +21,9 @@ class FilterCardTitleWidget extends StatelessWidget {
         padding: context.padding.onlyBottomLow,
         child: Row(
           children: <Widget>[
-            const Expanded(
+            Expanded(
               child: BodyMediumBlackText(
-                text: "Bilet Ara",
+                text: HomeViewStrings.ticketFilterCardTitleText.value,
                 textAlign: TextAlign.left,
               ),
             ),

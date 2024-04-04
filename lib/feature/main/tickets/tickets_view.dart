@@ -40,7 +40,6 @@ class _TicketsViewState extends MainTicketsBase<TicketsView> {
   Widget get buildFilterCardWidget => TicketFilterCardWidget(
         dynamicViewExtensions: dynamicViewExtensions,
         modelService: modelService,
-        selectTicketDate: selectTicketDate,
       );
 
   // ticket list

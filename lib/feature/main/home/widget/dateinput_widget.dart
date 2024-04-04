@@ -1,27 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
+import 'package:flutterturizm/product/enums/main_enums/home_enum/home_enum.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/tickets_model.dart';
 import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
 import 'package:kartal/kartal.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class FilterCardDateInputWidget extends StatelessWidget {
+class FilterCardDateInputWidget extends StatefulWidget {
   const FilterCardDateInputWidget({
     super.key,
-    required this.selectTicketDate,
     required this.dynamicViewExtensions,
     required this.homeModelService,
   });
 
-  final dynamic selectTicketDate;
   final DynamicViewExtensions dynamicViewExtensions;
   final TicketsModelService homeModelService;
 
   @override
+  State<FilterCardDateInputWidget> createState() =>
+      _FilterCardDateInputWidgetState();
+}
+
+class _FilterCardDateInputWidgetState extends State<FilterCardDateInputWidget> {
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        selectTicketDate(context);
+        DatePicker.showDatePicker(
+          context,
+          showTitleActions: true,
+          onConfirm: (date) {
+            final DateTime selectedDateTime = DateTime(
+              date.year,
+              date.month,
+              date.day,
+            );
+
+            setState(() {
+              widget.homeModelService.ticketDate = selectedDateTime;
+            });
+          },
+          currentTime: DateTime.now(),
+          locale: LocaleType.tr,
+        );
       },
       child: Container(
         margin: context.padding.verticalLow,
@@ -47,17 +69,17 @@ class FilterCardDateInputWidget extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       SizedBox(
-                        width: dynamicViewExtensions.maxWidth(context),
-                        child: const LabelMediumBlackText(
-                          text: "Tarih",
+                        width: widget.dynamicViewExtensions.maxWidth(context),
+                        child: LabelMediumBlackText(
+                          text: HomeViewStrings.ticketDateSelectText.value,
                           textAlign: TextAlign.left,
                         ),
                       ),
                       SizedBox(
-                        width: dynamicViewExtensions.maxWidth(context),
+                        width: widget.dynamicViewExtensions.maxWidth(context),
                         child: LabelMediumBlackText(
                           text:
-                              "${homeModelService.ticketDate.day}.${homeModelService.ticketDate.month}.${homeModelService.ticketDate.year}",
+                              "${widget.homeModelService.ticketDate.day}.${widget.homeModelService.ticketDate.month}.${widget.homeModelService.ticketDate.year}",
                           textAlign: TextAlign.left,
                         ),
                       ),

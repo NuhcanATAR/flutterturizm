@@ -37,7 +37,7 @@ class FilterTicketListWidget extends StatelessWidget {
                 child: ListView.builder(
                   itemCount: ticketList.length,
                   itemBuilder: (BuildContext context, int index) {
-                    Tickets ticket = ticketList[index];
+                    final Tickets ticket = ticketList[index];
                     return FilterTicketCardWidget(
                       ticket: ticket,
                       routerService: routerService,

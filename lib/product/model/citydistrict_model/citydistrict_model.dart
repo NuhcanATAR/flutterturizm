@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_new, unnecessary_this, unnecessary_getters_setters, prefer_collection_literals
+// ignore_for_file: unnecessary_new, unnecessary_this, unnecessary_getters_setters, prefer_collection_literals, avoid_dynamic_calls
 
 import 'dart:convert';
 
@@ -24,6 +24,7 @@ class MainCityDistrict {
     _status = json['status'];
     if (json['data'] != null) {
       _data = <Data>[];
+
       json['data'].forEach((v) {
         _data!.add(new Data.fromJson(v));
       });
@@ -61,19 +62,20 @@ class Data {
   Name? _region;
   List<Districts>? _districts;
 
-  Data(
-      {int? id,
-      String? name,
-      int? population,
-      int? area,
-      int? altitude,
-      List<int>? areaCode,
-      bool? isMetropolitan,
-      Nuts? nuts,
-      Coordinates? coordinates,
-      Maps? maps,
-      Name? region,
-      List<Districts>? districts}) {
+  Data({
+    int? id,
+    String? name,
+    int? population,
+    int? area,
+    int? altitude,
+    List<int>? areaCode,
+    bool? isMetropolitan,
+    Nuts? nuts,
+    Coordinates? coordinates,
+    Maps? maps,
+    Name? region,
+    List<Districts>? districts,
+  }) {
     if (id != null) {
       this._id = id;
     }

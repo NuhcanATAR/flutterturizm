@@ -98,7 +98,7 @@ class _RegisterViewState extends MainRegisterBase<RegisterView> {
 
   // title & sub title
   Widget get buildTitleSubTitleWidget => RegisterTitleSubTitleWidget(
-        maxWidth: maxWidth,
+        dynamicViewExtensions: dynamicViewExtensions,
       );
 
   // name surname
@@ -225,7 +225,6 @@ class _RegisterViewState extends MainRegisterBase<RegisterView> {
   // date of birth
   Widget get buildDateOfBirthInputWidget => RegisterDateOfBirthInputWidget(
         registerModelService: registerModelService,
-        selectDateOfBirth: selectDateOfBirth,
       );
 
   // gender
@@ -250,15 +249,14 @@ class _RegisterViewState extends MainRegisterBase<RegisterView> {
 
   // user agreement
   Widget get buildUserAgreementWidget => RegisterUserAgreementWidget(
-        maxWidth: maxWidth,
+        dynamicViewExtensions: dynamicViewExtensions,
         registerModelService: registerModelService,
       );
 
   // register button
   Widget get buildRegisterButtonWidget => RegisterButtonWidget(
         signInUpListenerBloc: signInUpListenerBloc,
-        registerUser: registerUser,
-        maxWidth: maxWidth,
-        dynamicHeight: dynamicHeight,
+        registerModelService: registerModelService,
+        dynamicViewExtensions: dynamicViewExtensions,
       );
 }

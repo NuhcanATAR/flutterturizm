@@ -15,11 +15,11 @@ class LoginRouterService {
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 500),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          var begin = const Offset(0.0, -1.0); // Yukarıdan başlıyor
-          var end = Offset.zero;
-          var curve = Curves.ease;
+          const begin = Offset(0.0, -1.0); // Yukarıdan başlıyor
+          const end = Offset.zero;
+          const curve = Curves.ease;
 
-          var tween =
+          final tween =
               Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
           return SlideTransition(
@@ -40,11 +40,11 @@ class LoginRouterService {
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 500),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          var begin = const Offset(-1.0, 0.0);
-          var end = Offset.zero;
-          var curve = Curves.ease;
+          const begin = Offset(-1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.ease;
 
-          var tween =
+          final tween =
               Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
           return SlideTransition(
@@ -60,20 +60,21 @@ class LoginRouterService {
 
   // login loading router view
   Future<void> loginLoadingRouterViewNavigatorRouter(
-      BuildContext context) async {
+    BuildContext context,
+  ) async {
     final userTable = await RegisterDB.USERS.userRef.get();
 
     if (userTable.exists) {
-      Navigator.push(
+      await Navigator.push(
         context,
         PageRouteBuilder(
           transitionDuration: const Duration(milliseconds: 500),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            var begin = const Offset(1.0, 0.0);
-            var end = Offset.zero;
-            var curve = Curves.ease;
+            const begin = Offset(1.0, 0.0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
 
-            var tween =
+            final tween =
                 Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
             return SlideTransition(
@@ -86,16 +87,16 @@ class LoginRouterService {
         ),
       );
     } else {
-      Navigator.push(
+      await Navigator.push(
         context,
         PageRouteBuilder(
           transitionDuration: const Duration(milliseconds: 500),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            var begin = const Offset(1.0, 0.0);
-            var end = Offset.zero;
-            var curve = Curves.ease;
+            const begin = Offset(1.0, 0.0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
 
-            var tween =
+            final tween =
                 Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
             return SlideTransition(

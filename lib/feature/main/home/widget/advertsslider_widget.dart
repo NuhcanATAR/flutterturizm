@@ -24,8 +24,10 @@ class AdvertsSliderWidget extends StatelessWidget {
         padding: context.padding.onlyTopMedium,
         child: FutureBuilder<QuerySnapshot<HomeAdvertListModel>>(
           future: responseAdverts,
-          builder: (BuildContext context,
-              AsyncSnapshot<QuerySnapshot<HomeAdvertListModel>> snapshot) {
+          builder: (
+            BuildContext context,
+            AsyncSnapshot<QuerySnapshot<HomeAdvertListModel>> snapshot,
+          ) {
             if (snapshot.hasError) {
               return const SizedBox();
             }

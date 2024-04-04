@@ -61,7 +61,7 @@ class _LoginViewState extends MainLoginBase<LoginView> {
 
   // title & sub title
   Widget get buildTitleSubTitleWidget => LoginTitleSubTitleWidget(
-        maxWidth: maxWidth,
+        dynamicViewExtensions: dynamicViewExtensions,
       );
 
   // email
@@ -82,9 +82,8 @@ class _LoginViewState extends MainLoginBase<LoginView> {
   // login button
   Widget get buildLoginButtonWidget => LoginButtonWidget(
         signInEmailPasswordListenerBloc: signInEmailPasswordListenerBloc,
-        loginEmailAndPasswordAuth: loginEmailAndPasswordAuth,
-        maxWidth: maxWidth,
-        dynamicHeight: dynamicHeight,
+        loginModelService: loginModelService,
+        dynamicViewExtensions: dynamicViewExtensions,
       );
 
   // or
@@ -99,15 +98,12 @@ class _LoginViewState extends MainLoginBase<LoginView> {
   // google login
   Widget get buildGoogleLogin => LoginGoogleLoginButtonWidget(
         signInGoogleAuthListenerBloc: signInGoogleAuthListenerBloc,
-        googleLoginButton: googleLoginButton,
-        maxWidth: maxWidth,
-        dynamicHeight: dynamicHeight,
+        dynamicViewExtensions: dynamicViewExtensions,
       );
 
   // email register
   Widget get buildEmailRegisterButtonWidget => LoginEmailRegisterButtonWidget(
         loginRouterService: loginRouterService,
-        maxWidth: maxWidth,
-        dynamicHeight: dynamicHeight,
+        dynamicViewExtensions: dynamicViewExtensions,
       );
 }

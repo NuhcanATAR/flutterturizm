@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutterturizm/feature/auth/logreg/widget/loginbutton_widget.dart';
 import 'package:flutterturizm/feature/auth/logreg/widget/registerbutton_widget.dart';
+import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
 import 'package:kartal/kartal.dart';
 
 class FooterButtonsWidget extends StatelessWidget {
   const FooterButtonsWidget({
     super.key,
-    required this.maxWidth,
-    required this.dynamicHeight,
+    required this.dynamicViewExtensions,
     required this.routerService,
   });
 
-  final dynamic maxWidth;
-  final dynamic dynamicHeight;
+  final DynamicViewExtensions dynamicViewExtensions;
   final dynamic routerService;
 
   @override
@@ -37,15 +36,13 @@ class FooterButtonsWidget extends StatelessWidget {
   // login button
   Widget buildLoginButtonWidget(BuildContext context) => LoginButtonWidget(
         routerService: routerService,
-        maxWidth: maxWidth,
-        dynamicHeight: dynamicHeight,
+        dynamicViewExtensions: dynamicViewExtensions,
       );
 
   // register email & google button
   Widget buildRegisterEmailGoogleButtonWidget(BuildContext context) =>
       RegisterButtonWidget(
         routerService: routerService,
-        maxWidth: maxWidth,
-        dynamicHeight: dynamicHeight,
+        dynamicViewExtensions: dynamicViewExtensions,
       );
 }

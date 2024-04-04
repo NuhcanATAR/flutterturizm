@@ -232,7 +232,6 @@ class _RegisterCompleteViewState
   // date of birth
   Widget get buildDateOfBirthInputWidget => RegisterDateOfBirthInputWidget(
         registerModelService: registerModelService,
-        selectDateOfBirth: selectDateOfBirth,
       );
 
   // gender
@@ -242,7 +241,7 @@ class _RegisterCompleteViewState
 
   // user agreement
   Widget get buildUserAgreementWidget => RegisterUserAgreementWidget(
-        maxWidth: maxWidth,
+        dynamicViewExtensions: dynamicViewExtensions,
         registerModelService: registerModelService,
       );
 
@@ -256,8 +255,8 @@ class _RegisterCompleteViewState
             }
           },
           child: SizedBox(
-            width: maxWidth,
-            height: dynamicHeight(0.07),
+            width: dynamicViewExtensions.maxWidth(context),
+            height: dynamicViewExtensions.dynamicHeight(context, 0.07),
             child: Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(

@@ -1,34 +1,24 @@
-// ignore_for_file: overridden_fields, annotate_overrides
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:flutterturizm/product/bloc/logregpass_bloc/register_bloc/cubit/cubit.dart';
-import 'package:flutterturizm/product/constant/color_constant.dart';
 import 'package:flutterturizm/product/enums/logregpass_enums/register_enum/register_enum.dart';
-import 'package:flutterturizm/product/extension/view_extension.dart';
-import 'package:flutterturizm/product/mixin/logregpass_mixin/login_mixin/login_mixin.dart';
+import 'package:flutterturizm/product/mixin/logregpass_mixin/login_mixin/loginbloc_mixin.dart';
 import 'package:flutterturizm/product/mixin/logregpass_mixin/register_mixin/register_mixin.dart';
+import 'package:flutterturizm/product/mixin/logregpass_mixin/register_mixin/registerbloc_mixin.dart';
 import 'package:flutterturizm/product/model/auth_model/register_model/register_model.dart';
 import 'package:flutterturizm/product/router/auth_router/register_router/register_router.dart';
+import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
 import 'package:flutterturizm/product/utility/service/citydistrict_service/citydistrict_service.dart';
-import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
-import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
 
 abstract class MainRegisterBase<T extends StatefulWidget> extends State<T>
-    with AuthSignInUpBlocMixin, AuthSingInBlocMixin {
-  // model service
-  RegisterModelService registerModelService = RegisterModelService();
-
+    with AuthSignInUpBlocMixin, AuthSingInBlocMixin, RegisterMixin {
   // router service
   RegisterRouterService registerRouterService = RegisterRouterService();
 
   // view size
-  double dynamicWidth(double value) => maxWidth * value;
-  double dynamicHeight(double value) => maxHeight * value;
-
-  late final maxWidth = ViewSizeModelExtension(context).mediaSize.width;
-  late final maxHeight = ViewSizeModelExtension(context).mediaSize.height;
+  DynamicViewExtensions dynamicViewExtensions = DynamicViewExtensions();
 
   @override
   void initState() {
@@ -37,7 +27,7 @@ abstract class MainRegisterBase<T extends StatefulWidget> extends State<T>
   }
 
   // get city distirct api
-  void getCityDistrictApi() async {
+  Future<void> getCityDistrictApi() async {
     final serviceApi = CityDistrictService(registerModelService.apiUrl);
     try {
       final allCityDistirctsList = await serviceApi.fetchAllCityDistricts();
@@ -52,12 +42,12 @@ abstract class MainRegisterBase<T extends StatefulWidget> extends State<T>
   }
 
   // date of birth
-  Future<void> selectDateOfBirth(BuildContext context) async {
+  void selectDateOfBirth(BuildContext context) {
     DatePicker.showDatePicker(
       context,
       showTitleActions: true,
       onConfirm: (date) {
-        DateTime selectedDateTime = DateTime(
+        final DateTime selectedDateTime = DateTime(
           date.year,
           date.month,
           date.day,
@@ -70,61 +60,6 @@ abstract class MainRegisterBase<T extends StatefulWidget> extends State<T>
       currentTime: DateTime.now(),
       locale: LocaleType.tr,
     );
-  }
-
-  // user register
-  void registerUser() {
-    if (registerModelService.formRegisterKey.currentState!.validate()) {
-      final registerModel = registerModelService;
-
-      if (registerModel.formRegisterKey.currentState!.validate()) {
-        final name = registerModel.nameController.text;
-        final surname = registerModel.surnameController.text;
-        final idNumber = registerModel.identificationNumberController.text;
-        final phoneNumber = registerModel.phoneNumberController.text;
-        final email = registerModel.emailController.text;
-        final password = registerModel.passwordController.text;
-        final passwordAgain = registerModel.passwordAgainController.text;
-
-        if (name.isNotEmpty &&
-            surname.isNotEmpty &&
-            idNumber.isNotEmpty &&
-            phoneNumber.isNotEmpty &&
-            email.isNotEmpty &&
-            password.isNotEmpty &&
-            passwordAgain.isNotEmpty) {
-          if (password == passwordAgain) {
-            if (phoneNumber.length < 10) {
-              showSnackBar(
-                  context, RegisterViewStrings.phoneNumberErrorText.value);
-            } else {
-              final gender = registerModel.genderType == GenderType.men
-                  ? "Erkek"
-                  : "Kadın";
-              BlocProvider.of<AuthSignInUpCubit>(context).signInUp(
-                name,
-                surname,
-                email,
-                password,
-                int.parse(idNumber),
-                registerModel.selectCity.toString(),
-                registerModel.selectDistrict.toString(),
-                int.parse(phoneNumber),
-                registerModel.dateOfBirth.day,
-                registerModel.dateOfBirth.month,
-                registerModel.dateOfBirth.year,
-                gender,
-              );
-            }
-          } else {
-            showSnackBar(context, RegisterViewStrings.passwordErrorText.value);
-          }
-        } else {
-          showSnackBar(
-              context, RegisterViewStrings.registerFormErrorText.value);
-        }
-      }
-    }
   }
 
   void registerComplete() {
@@ -157,25 +92,11 @@ abstract class MainRegisterBase<T extends StatefulWidget> extends State<T>
           );
         } else {
           showSnackBar(
-              context, RegisterViewStrings.registerFormErrorText.value);
+            context,
+            RegisterViewStrings.registerFormErrorText.value,
+          );
         }
       }
     }
-  }
-
-  void showSnackBar(BuildContext context, String message) {
-    final snackBar = SnackBar(
-      backgroundColor: MainAppColorConstants.blueMainColor,
-      content: LabelMediumWhiteText(
-        text: message,
-        textAlign: TextAlign.left,
-      ),
-      action: SnackBarAction(
-        onPressed: () {},
-        label: "Tamam",
-        textColor: Colors.white,
-      ),
-    );
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }

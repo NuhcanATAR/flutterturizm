@@ -1,8 +1,10 @@
 import 'dart:convert';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutterturizm/product/enums/main_enums/ticket_enums/ticket_enums.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/ticketdateslist_model.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/tickets_model.dart';
+import 'package:flutterturizm/product/utility/exception/service_exceptions/service_exceptions.dart';
+import 'package:flutterturizm/product/utility/service/api/tickets/tickets_api.dart';
 import 'package:http/http.dart' as http;
 
 class TicketDatesCubit extends Cubit<List<TicketDates>> {
@@ -17,17 +19,21 @@ class TicketDatesCubit extends Cubit<List<TicketDates>> {
       emit([]);
 
       final response = await http.get(
-        Uri.parse('http://192.168.1.103:3000/api/ticketDateList?ticketId=1'),
+        TicketsApiUrl.getTicketDateListApiUrl(ticketID),
       );
 
       if (response.statusCode == 200) {
-        List<dynamic> data = json.decode(response.body);
+        final List<dynamic> data = json.decode(response.body);
         emit(data.map((item) => TicketDates.fromJson(item)).toList());
       } else {
-        throw Exception('Failed to load ticket dates');
+        throw ServiceExceptions(
+          TicketViewStrings.ticketServiceStatusCodeErrorText.value.toString(),
+        );
       }
     } catch (e) {
-      throw Exception('Failed to load ticket dates');
+      throw ServiceExceptions(
+        TicketViewStrings.ticketServiceCatchErrorText.value.toString(),
+      );
     } finally {
       modelService.isTicketDateLoading = false;
     }

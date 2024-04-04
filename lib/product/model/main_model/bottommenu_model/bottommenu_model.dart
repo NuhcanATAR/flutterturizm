@@ -5,6 +5,7 @@ import 'package:flutterturizm/feature/main/map/map_view.dart';
 import 'package:flutterturizm/feature/main/profile/profile_view.dart';
 import 'package:flutterturizm/feature/main/tickets/tickets_view.dart';
 import 'package:logger/logger.dart';
+import 'package:logger/web.dart';
 
 class BottomMenuModelService {
   late List<Widget> viewList = <Widget>[
@@ -17,5 +18,5 @@ class BottomMenuModelService {
 
   late int selectView = 2;
 
-  dynamic logger = Logger();
+  Logger logger = Logger();
 }

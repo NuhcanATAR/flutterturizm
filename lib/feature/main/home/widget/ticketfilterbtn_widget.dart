@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterturizm/product/constant/color_constant.dart';
+import 'package:flutterturizm/product/enums/main_enums/home_enum/home_enum.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/tickets_model.dart';
 import 'package:flutterturizm/product/router/main_router/ticket_router/ticket_router.dart';
 import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
@@ -11,14 +12,12 @@ class TicketFilterButtonWidget extends StatelessWidget {
     super.key,
     required this.dynamicViewExtensions,
     required this.modelService,
-    required this.fetchTickets,
     required this.routerService,
   });
 
   final DynamicViewExtensions dynamicViewExtensions;
   final TicketRouterService routerService;
   final TicketsModelService modelService;
-  final dynamic fetchTickets;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,6 @@ class TicketFilterButtonWidget extends StatelessWidget {
           routerService.fastTicketFilteringView(
             context,
             modelService,
-            fetchTickets,
           );
         },
         child: SizedBox(
@@ -43,8 +41,8 @@ class TicketFilterButtonWidget extends StatelessWidget {
                 Radius.circular(4),
               ),
             ),
-            child: const LabelMediumWhiteText(
-              text: "Bilet Ara",
+            child: LabelMediumWhiteText(
+              text: HomeViewStrings.ticketFilterButtonText.value,
               textAlign: TextAlign.center,
             ),
           ),

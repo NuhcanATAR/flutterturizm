@@ -5,6 +5,7 @@ import 'package:flutterturizm/product/bloc/logregpass_bloc/login_bloc/state/stat
 import 'package:flutterturizm/product/constant/color_constant.dart';
 import 'package:flutterturizm/product/constant/icon_constant.dart';
 import 'package:flutterturizm/product/enums/logregpass_enums/register_enum/register_enum.dart';
+import 'package:flutterturizm/product/router/auth_router/register_router/register_router.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
 import 'package:kartal/kartal.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -16,7 +17,7 @@ class EmailLoginGoogleLoginButtonsWidget extends StatelessWidget {
     required this.signInGoogleAuthListenerBloc,
   });
 
-  final dynamic registerRouterService;
+  final RegisterRouterService registerRouterService;
   final dynamic signInGoogleAuthListenerBloc;
 
   @override

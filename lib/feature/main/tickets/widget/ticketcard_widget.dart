@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterturizm/product/constant/color_constant.dart';
+import 'package:flutterturizm/product/enums/main_enums/ticket_enums/ticket_enums.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/ticketslist_model.dart';
 import 'package:flutterturizm/product/router/main_router/ticket_router/ticket_router.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
@@ -65,8 +66,8 @@ class FilterTicketCardWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          const LabelMediumBlackBoldText(
-                            text: "Kalkış",
+                          LabelMediumBlackBoldText(
+                            text: TicketViewStrings.ticketTakeOffText.value,
                             textAlign: TextAlign.center,
                           ),
                           LabelMediumBlackText(
@@ -127,8 +128,8 @@ class FilterTicketCardWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          const LabelMediumBlackBoldText(
-                            text: "Varış",
+                          LabelMediumBlackBoldText(
+                            text: TicketViewStrings.ticketArrivalText.value,
                             textAlign: TextAlign.center,
                           ),
                           LabelMediumBlackText(

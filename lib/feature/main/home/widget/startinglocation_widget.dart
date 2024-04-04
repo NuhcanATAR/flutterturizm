@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterturizm/product/enums/main_enums/home_enum/home_enum.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/tickets_model.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
 import 'package:kartal/kartal.dart';
@@ -45,8 +46,8 @@ class _FilterCardStartingLocationWidgetState
           size: 21,
         ),
         value: widget.homeModelService.selectStartCity,
-        hint: const LabelMediumGreyText(
-          text: "Nerden?",
+        hint: LabelMediumGreyText(
+          text: HomeViewStrings.ticketFilterCardTakeOffCityText.value,
           textAlign: TextAlign.left,
         ),
         onChanged: (String? value) {

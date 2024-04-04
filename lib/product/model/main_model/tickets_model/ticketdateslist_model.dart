@@ -8,15 +8,16 @@ class TicketDates {
   int? year;
   int? seatStatus;
 
-  TicketDates(
-      {this.id,
-      this.ticketId,
-      this.hour,
-      this.minute,
-      this.day,
-      this.month,
-      this.year,
-      this.seatStatus});
+  TicketDates({
+    this.id,
+    this.ticketId,
+    this.hour,
+    this.minute,
+    this.day,
+    this.month,
+    this.year,
+    this.seatStatus,
+  });
 
   TicketDates.fromJson(Map<String, dynamic> json) {
     id = json['ID'];

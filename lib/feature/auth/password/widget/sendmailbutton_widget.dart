@@ -1,19 +1,22 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutterturizm/product/constant/color_constant.dart';
 import 'package:flutterturizm/product/enums/logregpass_enums/password_enum/password_enum.dart';
+import 'package:flutterturizm/product/mixin/logregpass_mixin/password_mixin/password_mixin.dart';
+import 'package:flutterturizm/product/model/auth_model/password_model/password_model.dart';
+import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
 import 'package:kartal/kartal.dart';
 
-class PasswordResetEmailButtonWidget extends StatelessWidget {
+class PasswordResetEmailButtonWidget extends StatelessWidget
+    with PasswordMixin {
   const PasswordResetEmailButtonWidget({
     super.key,
-    required this.sendMail,
-    required this.maxWidth,
-    required this.dynamicHeight,
+    required this.dynamicViewExtensions,
+    required this.passwordModelService,
   });
-  final dynamic sendMail;
-  final dynamic maxWidth;
-  final dynamic dynamicHeight;
+
+  final DynamicViewExtensions dynamicViewExtensions;
+  final PasswordModelService passwordModelService;
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +24,14 @@ class PasswordResetEmailButtonWidget extends StatelessWidget {
       padding: context.padding.verticalLow,
       child: GestureDetector(
         onTap: () {
-          sendMail();
+          sendMail(
+            context,
+            passwordModelService,
+          );
         },
         child: SizedBox(
-          width: maxWidth,
-          height: dynamicHeight(0.07),
+          width: dynamicViewExtensions.maxWidth(context),
+          height: dynamicViewExtensions.dynamicHeight(context, 0.07),
           child: Container(
             alignment: Alignment.center,
             decoration: BoxDecoration(

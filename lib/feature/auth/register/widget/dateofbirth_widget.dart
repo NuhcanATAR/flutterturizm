@@ -1,23 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:flutterturizm/product/enums/logregpass_enums/register_enum/register_enum.dart';
+import 'package:flutterturizm/product/model/auth_model/register_model/register_model.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
 import 'package:kartal/kartal.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class RegisterDateOfBirthInputWidget extends StatelessWidget {
+class RegisterDateOfBirthInputWidget extends StatefulWidget {
   const RegisterDateOfBirthInputWidget({
     super.key,
     required this.registerModelService,
-    required this.selectDateOfBirth,
   });
-  final dynamic registerModelService;
-  final dynamic selectDateOfBirth;
+  final RegisterModelService registerModelService;
 
+  @override
+  State<RegisterDateOfBirthInputWidget> createState() =>
+      _RegisterDateOfBirthInputWidgetState();
+}
+
+class _RegisterDateOfBirthInputWidgetState
+    extends State<RegisterDateOfBirthInputWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        selectDateOfBirth(context);
+        DatePicker.showDatePicker(
+          context,
+          showTitleActions: true,
+          onConfirm: (date) {
+            final DateTime selectedDateTime = DateTime(
+              date.year,
+              date.month,
+              date.day,
+            );
+
+            setState(() {
+              widget.registerModelService.dateOfBirth = selectedDateTime;
+            });
+          },
+          currentTime: DateTime.now(),
+          locale: LocaleType.tr,
+        );
       },
       child: Container(
         margin: context.padding.verticalLow,
@@ -40,7 +63,7 @@ class RegisterDateOfBirthInputWidget extends StatelessWidget {
                 padding: context.padding.horizontalLow,
                 child: LabelMediumBlackText(
                   text:
-                      "${RegisterViewStrings.dateOfBirthInputText.value}:   ${registerModelService.dateOfBirth.day}.${registerModelService.dateOfBirth.month}.${registerModelService.dateOfBirth.year}",
+                      "${RegisterViewStrings.dateOfBirthInputText.value}:   ${widget.registerModelService.dateOfBirth.day}.${widget.registerModelService.dateOfBirth.month}.${widget.registerModelService.dateOfBirth.year}",
                   textAlign: TextAlign.left,
                 ),
               ),

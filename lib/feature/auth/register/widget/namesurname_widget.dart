@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterturizm/product/enums/logregpass_enums/register_enum/register_enum.dart';
+import 'package:flutterturizm/product/model/auth_model/register_model/register_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
 
@@ -9,7 +10,7 @@ class RegisterNameSurnameInputWidget extends StatelessWidget {
     required this.registerModelService,
   });
 
-  final dynamic registerModelService;
+  final RegisterModelService registerModelService;
 
   @override
   Widget build(BuildContext context) {

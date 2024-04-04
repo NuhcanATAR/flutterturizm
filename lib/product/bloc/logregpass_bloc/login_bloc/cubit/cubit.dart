@@ -15,47 +15,61 @@ class AuthSignInCubit extends Cubit<AuthSignInMainState> {
     emit(AuthSignInLoadingState());
 
     try {
-      UserCredential userCredential =
+      final UserCredential userCredential =
           await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
 
-      User user = userCredential.user!;
+      final User user = userCredential.user!;
 
       if (user.emailVerified) {
         emit(AuthSignInSuccessState());
       } else {
-        emit(AuthSignInErrorState(
-          LoginViewStrings.loginEmailVerifiedErrorSnackBarText.value,
-        ));
+        emit(
+          AuthSignInErrorState(
+            LoginViewStrings.loginEmailVerifiedErrorSnackBarText.value,
+          ),
+        );
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        emit(AuthSignInErrorState(
-          LoginViewStrings.loginUserNotFount.value,
-        ));
+        emit(
+          AuthSignInErrorState(
+            LoginViewStrings.loginUserNotFount.value,
+          ),
+        );
       } else if (e.code == 'wrong-password') {
-        emit(AuthSignInErrorState(
-          LoginViewStrings.loginWrongPassword.value,
-        ));
+        emit(
+          AuthSignInErrorState(
+            LoginViewStrings.loginWrongPassword.value,
+          ),
+        );
       } else if (e.code == 'too-many-requests') {
-        emit(AuthSignInErrorState(
-          LoginViewStrings.loginTooManyRequest.value,
-        ));
+        emit(
+          AuthSignInErrorState(
+            LoginViewStrings.loginTooManyRequest.value,
+          ),
+        );
       } else if (e.code == "invalid-email") {
-        emit(AuthSignInErrorState(
-          LoginViewStrings.loginInvalidEmail.value,
-        ));
+        emit(
+          AuthSignInErrorState(
+            LoginViewStrings.loginInvalidEmail.value,
+          ),
+        );
       } else {
-        emit(AuthSignInErrorState(
-          LoginViewStrings.loginAuthError.value,
-        ));
+        emit(
+          AuthSignInErrorState(
+            LoginViewStrings.loginAuthError.value,
+          ),
+        );
       }
     } catch (e) {
-      emit(AuthSignInErrorState(
-        LoginViewStrings.loginAuthError.value,
-      ));
+      emit(
+        AuthSignInErrorState(
+          LoginViewStrings.loginAuthError.value,
+        ),
+      );
     }
   }
 
@@ -83,9 +97,11 @@ class AuthSignInCubit extends Cubit<AuthSignInMainState> {
         print("${LoginViewStrings.loginGoogleAuthError.value} $error");
       }
 
-      emit(AuthSignInGoogleAuthError(
-        LoginViewStrings.loginGoogleAuthError.value,
-      ));
+      emit(
+        AuthSignInGoogleAuthError(
+          LoginViewStrings.loginGoogleAuthError.value,
+        ),
+      );
       return null;
     }
   }

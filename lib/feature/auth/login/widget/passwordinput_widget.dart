@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterturizm/product/enums/logregpass_enums/login_enum/login_enum.dart';
+import 'package:flutterturizm/product/model/auth_model/login_model/login_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
 
@@ -9,7 +10,7 @@ class LoginPasswordInputWidget extends StatefulWidget {
     required this.loginModelService,
   });
 
-  final dynamic loginModelService;
+  final LoginModelService loginModelService;
 
   @override
   State<LoginPasswordInputWidget> createState() =>

@@ -63,7 +63,8 @@ class HomeAdvertListModel extends Equatable {
   }
 
   factory HomeAdvertListModel.fromFirebase(
-      DocumentSnapshot<Map<String, dynamic>> snapshot) {
+    DocumentSnapshot<Map<String, dynamic>> snapshot,
+  ) {
     final data = snapshot.data();
     return HomeAdvertListModel(
       id: snapshot.id,

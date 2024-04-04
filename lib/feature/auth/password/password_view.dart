@@ -73,7 +73,7 @@ class _ForgotPasswordViewState extends MainPasswordBase<ForgotPasswordView> {
 
   // title & sub title
   Widget get buildTitleSubTitleWidget => PasswordTitleSubTitleWidget(
-        maxWidth: maxWidth,
+        dynamicViewExtensions: dynamicViewExtensions,
       );
 
   // email input
@@ -83,8 +83,7 @@ class _ForgotPasswordViewState extends MainPasswordBase<ForgotPasswordView> {
 
   // send mail button
   Widget get buildSendMailButtonWidget => PasswordResetEmailButtonWidget(
-        sendMail: sendMail,
-        maxWidth: maxWidth,
-        dynamicHeight: dynamicHeight,
+        dynamicViewExtensions: dynamicViewExtensions,
+        passwordModelService: passwordModelService,
       );
 }

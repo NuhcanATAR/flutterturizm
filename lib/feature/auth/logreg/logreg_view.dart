@@ -22,7 +22,9 @@ class _LoginRegisterViewState extends MainLoginRegisterBase<LoginRegisterView> {
             image: AssetImage(AppLoginRegisterImgConstants.backImg.toJpg),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-                MainAppColorConstants.blueMainColor, BlendMode.overlay),
+              MainAppColorConstants.blueMainColor,
+              BlendMode.overlay,
+            ),
           ),
         ),
         child: Column(
@@ -39,13 +41,12 @@ class _LoginRegisterViewState extends MainLoginRegisterBase<LoginRegisterView> {
 
   // center body
   Widget get buildCenterBodyWidget => CenterBodyWidget(
-        maxWidth: maxWidth,
+        dynamicViewExtensions: dynamicViewExtensions,
       );
 
   // footer buttons
   Widget get buildFooterButtonsWidget => FooterButtonsWidget(
-        maxWidth: maxWidth,
-        dynamicHeight: dynamicHeight,
+        dynamicViewExtensions: dynamicViewExtensions,
         routerService: loginRegisterRouterService,
       );
 }

@@ -40,6 +40,7 @@ dependencies:
   firebase_core: ^2.25.4
   cloud_firestore: ^4.15.4
   firebase_auth: ^4.17.4
+  firebase_storage: ^11.6.11
   google_sign_in: ^6.2.1
 
   # core
@@ -54,6 +55,9 @@ dependencies:
   cached_network_image: ^3.3.1
   http: ^0.13.6
   intl_phone_field: ^3.2.0
+  pretty_qr_code: ^3.3.0
+  qr: ^3.0.1
+  qr_flutter: ^4.1.0
   
 
 
@@ -110,6 +114,8 @@ flutter:
     - assets/images/logregpass_img/
     # tickets images
     - assets/images/tickets_img/
+    # tickets icons
+    - assets/icons/tickets_icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

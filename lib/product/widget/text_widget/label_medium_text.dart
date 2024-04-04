@@ -4,8 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
 
 class LabelMediumBlackText extends StatelessWidget {
-  const LabelMediumBlackText(
-      {required this.text, required this.textAlign, super.key});
+  const LabelMediumBlackText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
 
   final String text;
   final TextAlign textAlign;
@@ -25,8 +28,11 @@ class LabelMediumBlackText extends StatelessWidget {
 }
 
 class LabelMediumMainColorText extends StatelessWidget {
-  const LabelMediumMainColorText(
-      {required this.text, required this.textAlign, super.key});
+  const LabelMediumMainColorText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
 
   final String text;
   final TextAlign textAlign;
@@ -46,8 +52,11 @@ class LabelMediumMainColorText extends StatelessWidget {
 }
 
 class LabelMediumWhiteText extends StatelessWidget {
-  const LabelMediumWhiteText(
-      {required this.text, required this.textAlign, super.key});
+  const LabelMediumWhiteText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
 
   final String text;
   final TextAlign textAlign;
@@ -67,8 +76,11 @@ class LabelMediumWhiteText extends StatelessWidget {
 }
 
 class LabelMediumWhiteBoldText extends StatelessWidget {
-  const LabelMediumWhiteBoldText(
-      {required this.text, required this.textAlign, super.key});
+  const LabelMediumWhiteBoldText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
 
   final String text;
   final TextAlign textAlign;
@@ -89,8 +101,11 @@ class LabelMediumWhiteBoldText extends StatelessWidget {
 }
 
 class LabelMediumGreyText extends StatelessWidget {
-  const LabelMediumGreyText(
-      {required this.text, required this.textAlign, super.key});
+  const LabelMediumGreyText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
 
   final String text;
   final TextAlign textAlign;
@@ -110,8 +125,11 @@ class LabelMediumGreyText extends StatelessWidget {
 }
 
 class LabelMediumBlackBoldText extends StatelessWidget {
-  const LabelMediumBlackBoldText(
-      {required this.text, required this.textAlign, super.key});
+  const LabelMediumBlackBoldText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
 
   final String text;
   final TextAlign textAlign;
@@ -132,8 +150,11 @@ class LabelMediumBlackBoldText extends StatelessWidget {
 }
 
 class LabelMediumRedText extends StatelessWidget {
-  const LabelMediumRedText(
-      {required this.text, required this.textAlign, super.key});
+  const LabelMediumRedText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
 
   final String text;
   final TextAlign textAlign;

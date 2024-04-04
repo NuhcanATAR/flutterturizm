@@ -10,7 +10,7 @@ class RegisterGenderTypeWidget extends StatefulWidget {
     super.key,
     required this.registerModelService,
   });
-  final dynamic registerModelService;
+  final RegisterModelService registerModelService;
 
   @override
   State<RegisterGenderTypeWidget> createState() =>

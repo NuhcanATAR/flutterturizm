@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterturizm/product/enums/logregpass_enums/password_enum/password_enum.dart';
+import 'package:flutterturizm/product/model/auth_model/password_model/password_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
 
@@ -9,7 +10,7 @@ class PasswordEmailInputWidget extends StatelessWidget {
     required this.passwordModelService,
   });
 
-  final dynamic passwordModelService;
+  final PasswordModelService passwordModelService;
 
   @override
   Widget build(BuildContext context) {

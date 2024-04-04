@@ -1,9 +1,9 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:data_connection_checker_nulls/data_connection_checker_nulls.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterturizm/product/extension/view_extension.dart';
 import 'package:flutterturizm/product/model/main_model/bottommenu_model/bottommenu_model.dart';
-import 'package:data_connection_checker_nulls/data_connection_checker_nulls.dart';
 import 'package:flutterturizm/product/router/main_router/bottommenu_router/bottommenu_router.dart';
 
 abstract class MainBottomMenuBase<T extends StatefulWidget> extends State<T> {
@@ -27,7 +27,7 @@ abstract class MainBottomMenuBase<T extends StatefulWidget> extends State<T> {
   }
 
   Future<void> checkConnection() async {
-    bool result = await DataConnectionChecker().hasConnection;
+    final bool result = await DataConnectionChecker().hasConnection;
     if (result == true) {
       modelService.logger.i('Internet Baglandi');
     } else {

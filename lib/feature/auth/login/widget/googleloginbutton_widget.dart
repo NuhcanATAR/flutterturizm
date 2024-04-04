@@ -4,22 +4,21 @@ import 'package:flutterturizm/product/bloc/logregpass_bloc/login_bloc/cubit/cubi
 import 'package:flutterturizm/product/bloc/logregpass_bloc/login_bloc/state/state.dart';
 import 'package:flutterturizm/product/constant/icon_constant.dart';
 import 'package:flutterturizm/product/enums/logregpass_enums/login_enum/login_enum.dart';
+import 'package:flutterturizm/product/mixin/logregpass_mixin/login_mixin/login_mixin.dart';
+import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
 import 'package:kartal/kartal.dart';
 
-class LoginGoogleLoginButtonWidget extends StatelessWidget {
+class LoginGoogleLoginButtonWidget extends StatelessWidget with LoginMixin {
   const LoginGoogleLoginButtonWidget({
     super.key,
     required this.signInGoogleAuthListenerBloc,
-    required this.googleLoginButton,
-    required this.maxWidth,
-    required this.dynamicHeight,
+    required this.dynamicViewExtensions,
   });
 
   final dynamic signInGoogleAuthListenerBloc;
-  final dynamic googleLoginButton;
-  final dynamic maxWidth;
-  final dynamic dynamicHeight;
+
+  final DynamicViewExtensions dynamicViewExtensions;
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +29,11 @@ class LoginGoogleLoginButtonWidget extends StatelessWidget {
           padding: context.padding.verticalLow,
           child: GestureDetector(
             onTap: () {
-              googleLoginButton();
+              googleLoginButton(context);
             },
             child: SizedBox(
-              width: maxWidth,
-              height: dynamicHeight(0.07),
+              width: dynamicViewExtensions.maxWidth(context),
+              height: dynamicViewExtensions.dynamicHeight(context, 0.07),
               child: Container(
                 decoration: const BoxDecoration(
                   color: Colors.white,

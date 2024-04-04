@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_function_literals_in_foreach_calls
+// ignore_for_file: avoid_function_literals_in_foreach_calls, avoid_dynamic_calls
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -18,7 +18,7 @@ class CityDistrictService {
     }
   }
 
-  Map<String, List<String>> parseData(dynamic jsonData) {
+  Map<String, List<String>> parseData(Map jsonData) {
     final List<dynamic> data = jsonData['data'];
     final Map<String, List<String>> cityDistricts = {};
     data.forEach((province) {

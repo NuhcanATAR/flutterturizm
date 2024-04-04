@@ -1,16 +1,17 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterturizm/product/enums/logregpass_enums/logreg_enum/logreg_enum.dart';
+import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
 
 class CenterBodyWidget extends StatelessWidget {
   const CenterBodyWidget({
     super.key,
-    required this.maxWidth,
+    required this.dynamicViewExtensions,
   });
 
-  final dynamic maxWidth;
+  final DynamicViewExtensions dynamicViewExtensions;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class CenterBodyWidget extends StatelessWidget {
 
   // title
   Widget buildTitleWidget(BuildContext context) => SizedBox(
-        width: maxWidth,
+        width: dynamicViewExtensions.maxWidth(context),
         child: AnimatedTextKit(
           isRepeatingAnimation: false,
           animatedTexts: [
@@ -61,7 +62,7 @@ class CenterBodyWidget extends StatelessWidget {
 
   // sub title
   Widget buildSubTitleWidget(BuildContext context) => SizedBox(
-        width: maxWidth,
+        width: dynamicViewExtensions.maxWidth(context),
         child: AnimatedTextKit(
           isRepeatingAnimation: false,
           animatedTexts: [

@@ -6,6 +6,7 @@ import 'package:flutterturizm/product/bloc/logregpass_bloc/password_bloc/cubit/c
 import 'package:flutterturizm/product/bloc/logregpass_bloc/register_bloc/cubit/cubit.dart';
 import 'package:flutterturizm/product/bloc/mainview_bloc/ticketdates_bloc/cubit/ticketdates_cubit.dart';
 import 'package:flutterturizm/product/bloc/mainview_bloc/tickets_bloc/cubit/ticket_cubit.dart';
+import 'package:flutterturizm/product/bloc/mainview_bloc/tickets_bloc/cubit/ticketcreate_cubit.dart';
 import 'package:flutterturizm/product/initialize/app_start.dart';
 
 void main() async {
@@ -27,6 +28,9 @@ void main() async {
         ),
         BlocProvider<TicketDatesCubit>(
           create: (BuildContext context) => TicketDatesCubit(),
+        ),
+        BlocProvider<TicketCreateCubit>(
+          create: (context) => TicketCreateCubit(),
         ),
       ],
       child: const MyApp(),

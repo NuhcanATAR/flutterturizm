@@ -3,8 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
 
 class BodyMediumBlackText extends StatelessWidget {
-  const BodyMediumBlackText(
-      {required this.text, required this.textAlign, super.key});
+  const BodyMediumBlackText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
 
   final String text;
   final dynamic textAlign;
@@ -24,8 +27,11 @@ class BodyMediumBlackText extends StatelessWidget {
 }
 
 class BodyMediumBlackBoldText extends StatelessWidget {
-  const BodyMediumBlackBoldText(
-      {required this.text, required this.textAlign, super.key});
+  const BodyMediumBlackBoldText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
 
   final String text;
   final dynamic textAlign;
@@ -46,8 +52,11 @@ class BodyMediumBlackBoldText extends StatelessWidget {
 }
 
 class BodyMediumWhiteBoldText extends StatelessWidget {
-  const BodyMediumWhiteBoldText(
-      {required this.text, required this.textAlign, super.key});
+  const BodyMediumWhiteBoldText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
 
   final String text;
   final dynamic textAlign;
@@ -68,8 +77,11 @@ class BodyMediumWhiteBoldText extends StatelessWidget {
 }
 
 class BodyMediumWhiteText extends StatelessWidget {
-  const BodyMediumWhiteText(
-      {required this.text, required this.textAlign, super.key});
+  const BodyMediumWhiteText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
 
   final String text;
   final dynamic textAlign;
@@ -89,8 +101,11 @@ class BodyMediumWhiteText extends StatelessWidget {
 }
 
 class BodyMediumWhiteShadowText extends StatelessWidget {
-  const BodyMediumWhiteShadowText(
-      {required this.text, required this.textAlign, super.key});
+  const BodyMediumWhiteShadowText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
 
   final String text;
   final dynamic textAlign;

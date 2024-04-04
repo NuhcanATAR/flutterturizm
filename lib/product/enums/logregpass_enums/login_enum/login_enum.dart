@@ -11,21 +11,25 @@ enum LoginViewStrings {
   // snackbar
   loginErrorSnackBarText('Lütfen giriş bilgilerinizi kontrol ediniz.'),
   loginEmailVerifiedErrorSnackBarText(
-      'E-mail Adresiniz Doğrulanmamıştır, lütfen e-mail adresinizi doğrulayınız.'),
+    'E-mail Adresiniz Doğrulanmamıştır, lütfen e-mail adresinizi doğrulayınız.',
+  ),
 
   // login validator
   loginValidatorText('Lütfen E-mail ve Şifrenizi Giriniz.'),
 
   // cubit state
   loginUserNotFount(
-      'Kullanıcı bulunamadı. Lütfen e-posta adresinizi kontrol ediniz.'),
+    'Kullanıcı bulunamadı. Lütfen e-posta adresinizi kontrol ediniz.',
+  ),
   loginWrongPassword('Lütfen şifrenizi kontrol ediniz.'),
   loginTooManyRequest(
-      'Çok fazla hatalı giriş, engellendiniz lütfen kısa bir süre sonra tekrar deneyiniz!'),
+    'Çok fazla hatalı giriş, engellendiniz lütfen kısa bir süre sonra tekrar deneyiniz!',
+  ),
   loginInvalidEmail('E-mail Adrei Geçersizdir'),
   loginAuthError('Giriş işlemi başarsızı oldu, bilgilerinizi kontrol ediniz.'),
   loginGoogleAuthError(
-      'Google ile Giriş yapma esnasında bir hata oluştu, tekrar deneyiniz!');
+    'Google ile Giriş yapma esnasında bir hata oluştu, tekrar deneyiniz!',
+  );
 
   final String value;
   const LoginViewStrings(this.value);

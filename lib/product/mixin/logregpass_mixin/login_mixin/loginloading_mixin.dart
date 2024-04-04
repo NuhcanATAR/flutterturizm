@@ -7,69 +7,22 @@ import 'package:flutterturizm/product/utility/database/logregpass_db/register_db
 import 'package:flutterturizm/product/utility/service/firebase/firebase_service.dart';
 
 mixin LoginLoadingRouterViewMixin {
-  void loginLoadingControl(BuildContext context) async {
+  Future<void> loginLoadingControl(BuildContext context) async {
     final userTable = await RegisterDB.USERS.userRef.get();
 
     if (FirebaseService().userID.isNotEmpty) {
       if (userTable.exists) {
-        Navigator.pushAndRemoveUntil(
-            context,
-            PageRouteBuilder(
-              transitionDuration: const Duration(milliseconds: 500),
-              transitionsBuilder:
-                  (context, animation, secondaryAnimation, child) {
-                var begin = const Offset(1.0, 0.0);
-                var end = Offset.zero;
-                var curve = Curves.ease;
-
-                var tween = Tween(begin: begin, end: end)
-                    .chain(CurveTween(curve: curve));
-
-                return SlideTransition(
-                  position: animation.drive(tween),
-                  child: child,
-                );
-              },
-              pageBuilder: (context, animation, secondaryAnimation) =>
-                  const BottomMenuView(),
-            ),
-            (Route<dynamic> route) => false);
-      } else {
-        Navigator.pushAndRemoveUntil(
-            context,
-            PageRouteBuilder(
-              transitionDuration: const Duration(milliseconds: 500),
-              transitionsBuilder:
-                  (context, animation, secondaryAnimation, child) {
-                var begin = const Offset(1.0, 0.0);
-                var end = Offset.zero;
-                var curve = Curves.ease;
-
-                var tween = Tween(begin: begin, end: end)
-                    .chain(CurveTween(curve: curve));
-
-                return SlideTransition(
-                  position: animation.drive(tween),
-                  child: child,
-                );
-              },
-              pageBuilder: (context, animation, secondaryAnimation) =>
-                  const RegisterCompleteView(),
-            ),
-            (Route<dynamic> route) => false);
-      }
-    } else {
-      Navigator.pushAndRemoveUntil(
+        await Navigator.pushAndRemoveUntil(
           context,
           PageRouteBuilder(
             transitionDuration: const Duration(milliseconds: 500),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
-              var begin = const Offset(1.0, 0.0);
-              var end = Offset.zero;
-              var curve = Curves.ease;
+              const begin = Offset(1.0, 0.0);
+              const end = Offset.zero;
+              const curve = Curves.ease;
 
-              var tween =
+              final tween =
                   Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
               return SlideTransition(
@@ -80,7 +33,56 @@ mixin LoginLoadingRouterViewMixin {
             pageBuilder: (context, animation, secondaryAnimation) =>
                 const BottomMenuView(),
           ),
-          (Route<dynamic> route) => false);
+          (Route<dynamic> route) => false,
+        );
+      } else {
+        await Navigator.pushAndRemoveUntil(
+          context,
+          PageRouteBuilder(
+            transitionDuration: const Duration(milliseconds: 500),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              const begin = Offset(1.0, 0.0);
+              const end = Offset.zero;
+              const curve = Curves.ease;
+
+              final tween =
+                  Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+              return SlideTransition(
+                position: animation.drive(tween),
+                child: child,
+              );
+            },
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                const RegisterCompleteView(),
+          ),
+          (Route<dynamic> route) => false,
+        );
+      }
+    } else {
+      await Navigator.pushAndRemoveUntil(
+        context,
+        PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 500),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(1.0, 0.0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+
+            final tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const BottomMenuView(),
+        ),
+        (Route<dynamic> route) => false,
+      );
     }
   }
 }

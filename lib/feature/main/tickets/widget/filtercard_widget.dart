@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:flutterturizm/product/bloc/mainview_bloc/tickets_bloc/cubit/ticket_cubit.dart';
 import 'package:flutterturizm/product/constant/color_constant.dart';
+import 'package:flutterturizm/product/enums/main_enums/ticket_enums/ticket_enums.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/tickets_model.dart';
 import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
@@ -13,12 +15,10 @@ class TicketFilterCardWidget extends StatefulWidget {
     super.key,
     required this.dynamicViewExtensions,
     required this.modelService,
-    required this.selectTicketDate,
   });
 
   final DynamicViewExtensions dynamicViewExtensions;
   final TicketsModelService modelService;
-  final dynamic selectTicketDate;
 
   @override
   State<TicketFilterCardWidget> createState() => _TicketFilterCardWidgetState();
@@ -75,8 +75,8 @@ class _TicketFilterCardWidgetState extends State<TicketFilterCardWidget> {
                         size: 21,
                       ),
                       value: widget.modelService.selectStartCity,
-                      hint: const LabelMediumGreyText(
-                        text: "Nerden?",
+                      hint: LabelMediumGreyText(
+                        text: TicketViewStrings.ticketTakeOffInputText.value,
                         textAlign: TextAlign.left,
                       ),
                       onChanged: (String? value) {
@@ -127,8 +127,8 @@ class _TicketFilterCardWidgetState extends State<TicketFilterCardWidget> {
                         size: 21,
                       ),
                       value: widget.modelService.selectEndCity,
-                      hint: const LabelMediumGreyText(
-                        text: "Nereye?",
+                      hint: LabelMediumGreyText(
+                        text: TicketViewStrings.ticketArrivalInputText.value,
                         textAlign: TextAlign.left,
                       ),
                       onChanged: (String? value) {
@@ -157,7 +157,23 @@ class _TicketFilterCardWidgetState extends State<TicketFilterCardWidget> {
         padding: context.padding.verticalLow,
         child: GestureDetector(
           onTap: () {
-            widget.selectTicketDate(context);
+            DatePicker.showDatePicker(
+              context,
+              showTitleActions: true,
+              onConfirm: (date) {
+                final DateTime selectedDateTime = DateTime(
+                  date.year,
+                  date.month,
+                  date.day,
+                );
+
+                setState(() {
+                  widget.modelService.ticketDate = selectedDateTime;
+                });
+              },
+              currentTime: DateTime.now(),
+              locale: LocaleType.tr,
+            );
           },
           child: Container(
             margin: context.padding.horizontalLow,
@@ -185,8 +201,8 @@ class _TicketFilterCardWidgetState extends State<TicketFilterCardWidget> {
                           SizedBox(
                             width:
                                 widget.dynamicViewExtensions.maxWidth(context),
-                            child: const LabelMediumBlackText(
-                              text: "Bilet Tarihi",
+                            child: LabelMediumBlackText(
+                              text: TicketViewStrings.ticketDateInputText.value,
                               textAlign: TextAlign.left,
                             ),
                           ),
@@ -244,8 +260,8 @@ class _TicketFilterCardWidgetState extends State<TicketFilterCardWidget> {
                   ),
                   Padding(
                     padding: context.padding.verticalLow,
-                    child: const LabelMediumWhiteText(
-                      text: "Biletleri Göster",
+                    child: LabelMediumWhiteText(
+                      text: TicketViewStrings.ticketFilterButtonText.value,
                       textAlign: TextAlign.center,
                     ),
                   ),

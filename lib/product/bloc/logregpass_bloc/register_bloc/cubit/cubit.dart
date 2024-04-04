@@ -26,7 +26,7 @@ class AuthSignInUpCubit extends Cubit<SignInUpMainState> {
   ) async {
     emit(AuthSignInUpLoading());
     try {
-      UserCredential userCredential =
+      final UserCredential userCredential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
@@ -47,7 +47,7 @@ class AuthSignInUpCubit extends Cubit<SignInUpMainState> {
         "AUTHTYPE": "EMAILAUTH",
       });
 
-      User? userAuth = userCredential.user;
+      final User? userAuth = userCredential.user;
       await userAuth?.sendEmailVerification();
 
       emit(AuthSignInUpSuccess(RegisterViewStrings.registerSuccessText.value));

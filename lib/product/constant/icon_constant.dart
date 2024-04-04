@@ -9,3 +9,13 @@ enum AppLogRegPassIconConstants {
   String get toPng => "assets/icons/logregpass_icons/$value.png";
   Image get toImg => Image.asset(toPng);
 }
+
+enum AppTicketsIconsConstants {
+  successIcon('success');
+
+  final String value;
+  const AppTicketsIconsConstants(this.value);
+
+  String get toPng => "assets/icons/tickets_icons/$value.png";
+  Image get toImg => Image.asset(toPng);
+}

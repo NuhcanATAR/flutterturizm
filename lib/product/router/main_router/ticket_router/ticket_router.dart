@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutterturizm/feature/main/home/view/fastticketfiltering/fastticketfiltering_view.dart';
 import 'package:flutterturizm/feature/main/tickets/view/tickercreate/tickercreate_view.dart';
 import 'package:flutterturizm/feature/main/tickets/view/ticketdetail/ticketdetail_view.dart';
+import 'package:flutterturizm/product/mixin/mainview_mixin/ticket/ticket_mixin.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/ticketdateslist_model.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/tickets_model.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/ticketslist_model.dart';
 
-class TicketRouterService {
+class TicketRouterService with TicketMixin {
   // fast ticket filtering view
   void fastTicketFilteringView(
     BuildContext context,
     TicketsModelService modelService,
-    dynamic fetchTickets,
   ) {
     Navigator.push(
       context,
@@ -21,7 +21,10 @@ class TicketRouterService {
         ),
       ),
     );
-    fetchTickets(modelService);
+    ticketFilter(
+      context,
+      modelService,
+    );
   }
 
   // ticket detail view
@@ -31,11 +34,11 @@ class TicketRouterService {
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 500),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          var begin = const Offset(1.0, 0.0);
-          var end = Offset.zero;
-          var curve = Curves.ease;
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.ease;
 
-          var tween =
+          final tween =
               Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
           return SlideTransition(
@@ -62,11 +65,11 @@ class TicketRouterService {
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 500),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          var begin = const Offset(1.0, 0.0);
-          var end = Offset.zero;
-          var curve = Curves.ease;
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.ease;
 
-          var tween =
+          final tween =
               Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
           return SlideTransition(

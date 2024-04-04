@@ -1,11 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterturizm/firebase_options.dart';
 
-// pub dev
 import 'package:intl/date_symbol_data_local.dart';
-
-// pub dev
-import 'package:firebase_core/firebase_core.dart';
 
 @immutable
 class AppStart {
@@ -16,6 +13,6 @@ class AppStart {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    initializeDateFormatting('tr_TR', null);
+    await initializeDateFormatting('tr_TR', null);
   }
 }

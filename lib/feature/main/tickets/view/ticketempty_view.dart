@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterturizm/product/constant/image_constant.dart';
+import 'package:flutterturizm/product/enums/main_enums/ticket_enums/ticket_enums.dart';
 import 'package:flutterturizm/product/widget/text_widget/body_medium_text.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
 import 'package:kartal/kartal.dart';
@@ -24,17 +25,16 @@ class FilterTicketEmptyView extends StatelessWidget {
             // title
             Padding(
               padding: context.padding.onlyTopLow,
-              child: const BodyMediumBlackBoldText(
-                text: "Bilet Filtreleyin",
+              child: BodyMediumBlackBoldText(
+                text: TicketViewStrings.ticketEmptyTitleText.value,
                 textAlign: TextAlign.center,
               ),
             ),
             // sub title
             Padding(
               padding: context.padding.onlyTopLow,
-              child: const LabelMediumBlackText(
-                text:
-                    "Henüz yeni bir bilet yok gibi görünüyor, isterseniz filtreleme yaparak size uygun filtreyi bulabilirsiniz.",
+              child: LabelMediumBlackText(
+                text: TicketViewStrings.ticketEmptySubTitleText.value,
                 textAlign: TextAlign.center,
               ),
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterturizm/feature/main/home/widget/advertsslider_widget.dart';
 import 'package:flutterturizm/feature/main/home/widget/ticketfiltercard_widget.dart';
 import 'package:flutterturizm/product/constant/color_constant.dart';
+import 'package:flutterturizm/product/enums/main_enums/home_enum/home_enum.dart';
 import 'package:flutterturizm/product/utility/base/mainbase/home_base/home_base.dart';
 import 'package:flutterturizm/product/widget/text_widget/body_medium_text.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
@@ -64,10 +65,11 @@ class _HomeViewState extends MainHomeBase<HomeView> {
                           // welcome
                           SizedBox(
                             width: dynamicViewExtensions.maxWidth(context),
-                            child: const Padding(
-                              padding: EdgeInsets.only(bottom: 3),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 3),
                               child: LabelMediumWhiteText(
-                                text: "Hoşgeldiniz 👋",
+                                text: HomeViewStrings.appBarWelcomeText.value
+                                    .toString(),
                                 textAlign: TextAlign.left,
                               ),
                             ),
@@ -128,7 +130,6 @@ class _HomeViewState extends MainHomeBase<HomeView> {
   Widget get buildTicketFilterCardWidget => HomeTicketFilterCardWidget(
         homeModelService: homeModelService,
         dynamicViewExtensions: dynamicViewExtensions,
-        selectTicketDate: selectTicketDate,
       );
 
   // adverts slider

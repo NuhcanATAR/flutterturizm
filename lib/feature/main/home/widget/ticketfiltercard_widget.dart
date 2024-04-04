@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterturizm/feature/main/home/widget/dateinput_widget.dart';
 import 'package:flutterturizm/feature/main/home/widget/endlocation_widget.dart';
 import 'package:flutterturizm/feature/main/home/widget/filtercardtitle_widget.dart';
 import 'package:flutterturizm/feature/main/home/widget/startinglocation_widget.dart';
 import 'package:flutterturizm/feature/main/home/widget/ticketfilterbtn_widget.dart';
-import 'package:flutterturizm/product/bloc/mainview_bloc/tickets_bloc/cubit/ticket_cubit.dart';
 import 'package:flutterturizm/product/constant/color_constant.dart';
 import 'package:flutterturizm/product/model/main_model/home_model/home_model.dart';
 import 'package:flutterturizm/product/utility/base/mainbase/tickets_base/tickets_base.dart';
@@ -18,13 +16,10 @@ class HomeTicketFilterCardWidget extends StatefulWidget {
     super.key,
     required this.homeModelService,
     required this.dynamicViewExtensions,
-    required this.selectTicketDate,
   });
 
   final HomeModelService homeModelService;
   final DynamicViewExtensions dynamicViewExtensions;
-
-  final dynamic selectTicketDate;
 
   @override
   State<HomeTicketFilterCardWidget> createState() =>
@@ -137,7 +132,6 @@ class _HomeTicketFilterCardWidgetState
 
   // date
   Widget get buildDateWidget => FilterCardDateInputWidget(
-        selectTicketDate: selectTicketDate,
         dynamicViewExtensions: dynamicViewExtensions,
         homeModelService: modelService,
       );
@@ -146,11 +140,6 @@ class _HomeTicketFilterCardWidgetState
   Widget get buildTicketFilterButtonWidget => TicketFilterButtonWidget(
         dynamicViewExtensions: dynamicViewExtensions,
         modelService: modelService,
-        fetchTickets: context.read<TicketsCubit>().fetchTickets(
-              modelService.selectStartCity.toString(),
-              modelService.selectEndCity.toString(),
-              modelService.ticketDate,
-            ),
         routerService: routerService,
       );
 }

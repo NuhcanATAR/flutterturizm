@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterturizm/product/router/auth_router/login_router/login_router.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../../../product/enums/logregpass_enums/login_enum/login_enum.dart';
@@ -9,7 +10,7 @@ class LoginForgotPasswordButtonWidget extends StatelessWidget {
     super.key,
     required this.loginRouterService,
   });
-  final dynamic loginRouterService;
+  final LoginRouterService loginRouterService;
 
   @override
   Widget build(BuildContext context) {
