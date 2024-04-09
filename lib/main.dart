@@ -4,6 +4,7 @@ import 'package:flutterturizm/feature/splash/splash_view.dart';
 import 'package:flutterturizm/product/bloc/logregpass_bloc/login_bloc/cubit/cubit.dart';
 import 'package:flutterturizm/product/bloc/logregpass_bloc/password_bloc/cubit/cubit.dart';
 import 'package:flutterturizm/product/bloc/logregpass_bloc/register_bloc/cubit/cubit.dart';
+import 'package:flutterturizm/product/bloc/mainview_bloc/salepoints_bloc/cubit/salepoints_cubit.dart';
 import 'package:flutterturizm/product/bloc/mainview_bloc/ticketdates_bloc/cubit/ticketdates_cubit.dart';
 import 'package:flutterturizm/product/bloc/mainview_bloc/tickets_bloc/cubit/ticket_cubit.dart';
 import 'package:flutterturizm/product/bloc/mainview_bloc/tickets_bloc/cubit/ticketcreate_cubit.dart';
@@ -31,6 +32,9 @@ void main() async {
         ),
         BlocProvider<TicketCreateCubit>(
           create: (context) => TicketCreateCubit(),
+        ),
+        BlocProvider<SalePointsCubit>(
+          create: (context) => SalePointsCubit(),
         ),
       ],
       child: const MyApp(),
