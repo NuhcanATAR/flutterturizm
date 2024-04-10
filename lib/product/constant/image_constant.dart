@@ -18,3 +18,13 @@ enum AppTicketsImgConstants {
   String get toPng => "assets/images/tickets_img/$value.png";
   Image get toImg => Image.asset(toPng);
 }
+
+enum AppLiveSupportImgConstants {
+  startMessageImg('startchatimg');
+
+  final String value;
+  const AppLiveSupportImgConstants(this.value);
+
+  String get toPng => "assets/images/livesupport_img/$value.png";
+  Image get toImg => Image.asset(toPng);
+}

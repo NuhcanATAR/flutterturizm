@@ -42,6 +42,7 @@ dependencies:
   firebase_auth: ^4.17.4
   firebase_storage: ^11.6.11
   google_sign_in: ^6.2.1
+  firebase_database: ^10.5.1
 
   # core
   kartal: ^3.5.0
@@ -119,6 +120,8 @@ flutter:
     - assets/images/tickets_img/
     # tickets icons
     - assets/icons/tickets_icons/
+    # live support images
+    - assets/images/livesupport_img/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
