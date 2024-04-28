@@ -43,113 +43,116 @@ class _TicketFilterCardWidgetState extends State<TicketFilterCardWidget> {
   }
 
   // location select
-  Widget buildLocationSelectWidget(BuildContext context) => Row(
-        children: <Widget>[
-          // start location
-          Flexible(
-            fit: FlexFit.tight,
-            flex: 1,
-            child: widget.modelService.cityDistricts == null
-                ? const SizedBox()
-                : Container(
-                    margin: context.padding.horizontalLow,
-                    padding: context.padding.horizontalLow,
-                    decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.2),
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(4),
-                      ),
-                    ),
-                    child: DropdownButtonFormField<String>(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        icon: Icon(
-                          MdiIcons.bus,
-                          color: Colors.black,
-                          size: 18,
+  Widget buildLocationSelectWidget(BuildContext context) => Padding(
+        padding: context.padding.onlyTopLow,
+        child: Row(
+          children: <Widget>[
+            // start location
+            Flexible(
+              fit: FlexFit.tight,
+              flex: 1,
+              child: widget.modelService.cityDistricts == null
+                  ? const SizedBox()
+                  : Container(
+                      margin: context.padding.horizontalLow,
+                      padding: context.padding.horizontalLow,
+                      decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(0.2),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(4),
                         ),
                       ),
-                      icon: const Icon(
-                        Icons.arrow_drop_down,
-                        color: Colors.transparent,
-                        size: 21,
-                      ),
-                      value: widget.modelService.selectStartCity,
-                      hint: LabelMediumGreyText(
-                        text: TicketViewStrings.ticketTakeOffInputText.value,
-                        textAlign: TextAlign.left,
-                      ),
-                      onChanged: (String? value) {
-                        setState(() {
-                          widget.modelService.selectStartCity = value;
-                        });
-                      },
-                      items: widget.modelService.cityDistricts!.keys
-                          .map((String city) {
-                        return DropdownMenuItem<String>(
-                          value: city,
-                          child: LabelMediumBlackText(
-                            text: city,
-                            textAlign: TextAlign.left,
+                      child: DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          icon: Icon(
+                            MdiIcons.bus,
+                            color: Colors.black,
+                            size: 18,
                           ),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-          ),
-          // end location
-          Flexible(
-            fit: FlexFit.tight,
-            flex: 1,
-            child: widget.modelService.cityDistricts == null
-                ? const SizedBox()
-                : Container(
-                    margin: context.padding.horizontalLow,
-                    padding: context.padding.horizontalLow,
-                    decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.2),
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(4),
+                        ),
+                        icon: const Icon(
+                          Icons.arrow_drop_down,
+                          color: Colors.transparent,
+                          size: 21,
+                        ),
+                        value: widget.modelService.selectStartCity,
+                        hint: LabelMediumGreyText(
+                          text: TicketViewStrings.ticketTakeOffInputText.value,
+                          textAlign: TextAlign.left,
+                        ),
+                        onChanged: (String? value) {
+                          setState(() {
+                            widget.modelService.selectStartCity = value;
+                          });
+                        },
+                        items: widget.modelService.cityDistricts!.keys
+                            .map((String city) {
+                          return DropdownMenuItem<String>(
+                            value: city,
+                            child: LabelMediumBlackText(
+                              text: city,
+                              textAlign: TextAlign.left,
+                            ),
+                          );
+                        }).toList(),
                       ),
                     ),
-                    child: DropdownButtonFormField<String>(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        icon: Icon(
-                          MdiIcons.bus,
-                          color: Colors.black,
-                          size: 18,
+            ),
+            // end location
+            Flexible(
+              fit: FlexFit.tight,
+              flex: 1,
+              child: widget.modelService.cityDistricts == null
+                  ? const SizedBox()
+                  : Container(
+                      margin: context.padding.horizontalLow,
+                      padding: context.padding.horizontalLow,
+                      decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(0.2),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(4),
                         ),
                       ),
-                      icon: const Icon(
-                        Icons.arrow_drop_down,
-                        color: Colors.transparent,
-                        size: 21,
-                      ),
-                      value: widget.modelService.selectEndCity,
-                      hint: LabelMediumGreyText(
-                        text: TicketViewStrings.ticketArrivalInputText.value,
-                        textAlign: TextAlign.left,
-                      ),
-                      onChanged: (String? value) {
-                        setState(() {
-                          widget.modelService.selectEndCity = value;
-                        });
-                      },
-                      items: widget.modelService.cityDistricts!.keys
-                          .map((String city) {
-                        return DropdownMenuItem<String>(
-                          value: city,
-                          child: LabelMediumBlackText(
-                            text: city,
-                            textAlign: TextAlign.left,
+                      child: DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          icon: Icon(
+                            MdiIcons.bus,
+                            color: Colors.black,
+                            size: 18,
                           ),
-                        );
-                      }).toList(),
+                        ),
+                        icon: const Icon(
+                          Icons.arrow_drop_down,
+                          color: Colors.transparent,
+                          size: 21,
+                        ),
+                        value: widget.modelService.selectEndCity,
+                        hint: LabelMediumGreyText(
+                          text: TicketViewStrings.ticketArrivalInputText.value,
+                          textAlign: TextAlign.left,
+                        ),
+                        onChanged: (String? value) {
+                          setState(() {
+                            widget.modelService.selectEndCity = value;
+                          });
+                        },
+                        items: widget.modelService.cityDistricts!.keys
+                            .map((String city) {
+                          return DropdownMenuItem<String>(
+                            value: city,
+                            child: LabelMediumBlackText(
+                              text: city,
+                              textAlign: TextAlign.left,
+                            ),
+                          );
+                        }).toList(),
+                      ),
                     ),
-                  ),
-          ),
-        ],
+            ),
+          ],
+        ),
       );
 
   // ticket date

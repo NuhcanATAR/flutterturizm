@@ -1,16 +1,24 @@
+// ignore_for_file: constant_identifier_names
+
 import 'dart:math';
 
 import 'package:flutterturizm/product/model/main_model/tickets_model/ticketdateslist_model.dart';
 import 'package:flutterturizm/product/utility/service/firebase/firebase_service.dart';
 
+enum MyTicketTravelStatusType {
+  Active('Aktif'),
+  Canceled('Bilet İptal Edildi'),
+  OnTheJournery('Yolculukta'),
+  OnBreak('Molada'),
+  AtDestination('Varış Noktasında'),
+  JourneyCompleted('Yolculuk Tamamlandı');
+
+  final String value;
+  const MyTicketTravelStatusType(this.value);
+}
+
 class TicketsModelService {
   late List<TicketDates> ticketDatesList = [];
-
-  final String ticketsListUrl = "http://192.168.1.103:3000/api/ticketList";
-
-  final Uri ticketDatesUrl = Uri.parse(
-    'http://192.168.1.103/flutterturizmbackend_service/tickets/ticketdatelist.php',
-  );
 
   late bool isTicketLoading;
   late bool isTicketDateLoading;

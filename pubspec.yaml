@@ -80,6 +80,7 @@ dependencies:
   material_design_icons_flutter: ^7.0.7296
   percent_indicator: ^4.2.3
   flutter_map: ^6.1.0
+  flutter_rating_bar: ^4.0.1
 
 
 
@@ -122,6 +123,8 @@ flutter:
     - assets/icons/tickets_icons/
     # live support images
     - assets/images/livesupport_img/
+    # profile icons
+    - assets/icons/profile_icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

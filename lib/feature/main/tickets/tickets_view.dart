@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterturizm/feature/main/tickets/widget/filtercard_widget.dart';
 import 'package:flutterturizm/feature/main/tickets/widget/ticketlist_widget.dart';
+import 'package:flutterturizm/product/constant/color_constant.dart';
 import 'package:flutterturizm/product/utility/base/mainbase/tickets_base/tickets_base.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
 
@@ -16,11 +17,11 @@ class _TicketsViewState extends MainTicketsBase<TicketsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: MainAppColorConstants.blueMainColor,
         elevation: 0,
         centerTitle: true,
         automaticallyImplyLeading: false,
-        title: const LabelMediumMainColorText(
+        title: const LabelMediumWhiteText(
           text: "Biletler",
           textAlign: TextAlign.center,
         ),

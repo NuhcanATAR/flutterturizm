@@ -5,6 +5,7 @@ import 'package:flutterturizm/feature/main/livesupport/widget/startbutton_widget
 import 'package:flutterturizm/feature/main/livesupport/widget/titlesubtitle_widget.dart';
 import 'package:flutterturizm/product/bloc/mainview_bloc/livesupport_bloc/cubit/livesupport_cubit.dart';
 import 'package:flutterturizm/product/bloc/mainview_bloc/livesupport_bloc/state/livesupport_state.dart';
+import 'package:flutterturizm/product/constant/color_constant.dart';
 import 'package:flutterturizm/product/utility/base/mainbase/livesupport_base/livesupport_base.dart';
 import 'package:flutterturizm/product/widget/text_widget/label_medium_text.dart';
 import 'package:kartal/kartal.dart';
@@ -22,10 +23,10 @@ class _LiveSupportViewState extends LiveSupportBase<LiveSupportView> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: MainAppColorConstants.blueMainColor,
         elevation: 0,
         centerTitle: true,
-        title: const LabelMediumMainColorText(
+        title: const LabelMediumWhiteText(
           text: "Canlı Destek",
           textAlign: TextAlign.center,
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterturizm/product/constant/color_constant.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
 
@@ -94,6 +95,78 @@ class BodyMediumWhiteText extends StatelessWidget {
       style: GoogleFonts.nunito(
         textStyle: context.general.textTheme.bodyMedium?.copyWith(
           color: Colors.white,
+        ),
+      ),
+    );
+  }
+}
+
+class BodyMediumMainColorText extends StatelessWidget {
+  const BodyMediumMainColorText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
+
+  final String text;
+  final dynamic textAlign;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      textAlign: textAlign,
+      style: GoogleFonts.nunito(
+        textStyle: context.general.textTheme.bodyMedium?.copyWith(
+          color: MainAppColorConstants.blueMainColor,
+        ),
+      ),
+    );
+  }
+}
+
+class BodyMediumGreyText extends StatelessWidget {
+  const BodyMediumGreyText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
+
+  final String text;
+  final dynamic textAlign;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      textAlign: textAlign,
+      style: GoogleFonts.nunito(
+        textStyle: context.general.textTheme.bodyMedium?.copyWith(
+          color: Colors.grey,
+        ),
+      ),
+    );
+  }
+}
+
+class BodyMediumRedText extends StatelessWidget {
+  const BodyMediumRedText({
+    required this.text,
+    required this.textAlign,
+    super.key,
+  });
+
+  final String text;
+  final dynamic textAlign;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      textAlign: textAlign,
+      style: GoogleFonts.nunito(
+        textStyle: context.general.textTheme.bodyMedium?.copyWith(
+          color: Colors.redAccent,
         ),
       ),
     );

@@ -45,8 +45,27 @@ abstract class MainHomeBase<T extends StatefulWidget> extends State<T> {
     final userRefCollection = await HomeDB.USERS.userRef;
     final userName = userRefCollection['NAME'];
     final userSurname = userRefCollection['SURNAME'];
+    final city = userRefCollection['CITY'];
+    final district = userRefCollection['DISTRICT'];
+    final identificationId = userRefCollection['IDENTIFICATIONNUMBER'];
+    final dateOfBirthDay = userRefCollection['DATEOFBIRTHDAY'];
+    final dateOfBirthMonth = userRefCollection['DATEOFBIRTHMONTH'];
+    final dateOfBirthYear = userRefCollection['DATEOFBIRTHYEAR'];
+    final accountType = userRefCollection['AUTHTYPE'];
+    final phoneNumber = userRefCollection['PHONENUMBER'];
 
-    return CurrentUserModel(name: userName, surname: userSurname);
+    return CurrentUserModel(
+      city: city,
+      district: district,
+      name: userName,
+      surname: userSurname,
+      accountType: accountType,
+      identificationId: identificationId,
+      dateOfBirthDay: dateOfBirthDay,
+      dateOfBirthMonth: dateOfBirthMonth,
+      dateOfBirthYear: dateOfBirthYear,
+      phoneNumber: phoneNumber,
+    );
   }
 
   // adverts list response

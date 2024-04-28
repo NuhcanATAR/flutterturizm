@@ -22,11 +22,11 @@ class _MapViewState extends MainMapBase<MapView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: MainAppColorConstants.blueMainColor,
         elevation: 0,
         centerTitle: true,
         automaticallyImplyLeading: false,
-        title: const LabelMediumMainColorText(
+        title: const LabelMediumWhiteText(
           text: "Satış Noktaları",
           textAlign: TextAlign.center,
         ),

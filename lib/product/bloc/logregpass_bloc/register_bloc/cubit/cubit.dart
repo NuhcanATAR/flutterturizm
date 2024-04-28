@@ -41,8 +41,9 @@ class AuthSignInUpCubit extends Cubit<SignInUpMainState> {
         "CITY": city,
         "DISTRICT": district,
         "PHONENUMBER": phoneNumber,
-        "DATEOFBIRTH":
-            "${dateOfBirthDay.toString()}.${dateOfBirthMonth.toString()}.${dateOfBithYear.toString()}",
+        "DATEOFBIRTHDAY": dateOfBirthDay,
+        "DATEOFBIRTHMONTH": dateOfBirthMonth,
+        "DATEOFBIRTHYEAR": dateOfBithYear,
         "GENDER": genderType,
         "AUTHTYPE": "EMAILAUTH",
       });
@@ -95,8 +96,9 @@ class AuthSignInUpCubit extends Cubit<SignInUpMainState> {
         "CITY": city,
         "DISTRICT": district,
         "PHONENUMBER": phoneNumber,
-        "DATEOFBIRTH":
-            "${dateOfBirthDay.toString()}.${dateOfBirthMonth.toString()}.${dateOfBithYear.toString()}",
+        "DATEOFBIRTHDAY": dateOfBirthDay,
+        "DATEOFBIRTHMONTH": dateOfBirthMonth,
+        "DATEOFBIRTHYEAR": dateOfBithYear,
         "GENDER": genderType,
         "AUTHTYPE": "GOOGLEAUTH",
       });

@@ -58,7 +58,7 @@ class TicketCreateCubit extends Cubit<TicketCreateState> {
             'qrCode': downloadQrCodeUrl.toString(),
             'seatNumber': seatNumber.toString(),
             'ticketDate':
-                "${ticketDates.day}.${ticketDates.month}.${ticketDates.year}",
+                "${ticketDates.day}.${ticketDates.month}.${ticketDates.year}  ${ticketDates.hour}:${ticketDates.minute}",
           },
         ),
       );
