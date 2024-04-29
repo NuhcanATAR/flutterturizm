@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterturizm/product/mixin/mainview_mixin/ticket/ticket_mixin.dart';
 import 'package:flutterturizm/product/mixin/mainview_mixin/ticket/ticketcreatebloc_mixin.dart';
 import 'package:flutterturizm/product/model/auth_model/currentuser_model/currentuser_model.dart';
+import 'package:flutterturizm/product/model/connection_model/connection_model.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/ticketdateslist_model.dart';
 import 'package:flutterturizm/product/model/main_model/tickets_model/tickets_model.dart';
 import 'package:flutterturizm/product/router/main_router/ticket_router/ticket_router.dart';
@@ -31,6 +32,7 @@ abstract class MainTicketsBase<T extends StatefulWidget> extends State<T>
   void initState() {
     super.initState();
     getCityDistrictApi();
+    ConnectionControlModel().checkConnection(context);
   }
 
   // get city distirct api

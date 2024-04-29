@@ -8,6 +8,7 @@ import 'package:flutterturizm/product/mixin/logregpass_mixin/login_mixin/loginbl
 import 'package:flutterturizm/product/mixin/logregpass_mixin/register_mixin/register_mixin.dart';
 import 'package:flutterturizm/product/mixin/logregpass_mixin/register_mixin/registerbloc_mixin.dart';
 import 'package:flutterturizm/product/model/auth_model/register_model/register_model.dart';
+import 'package:flutterturizm/product/model/connection_model/connection_model.dart';
 import 'package:flutterturizm/product/router/auth_router/register_router/register_router.dart';
 import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
 import 'package:flutterturizm/product/utility/service/citydistrict_service/citydistrict_service.dart';
@@ -24,6 +25,7 @@ abstract class MainRegisterBase<T extends StatefulWidget> extends State<T>
   void initState() {
     super.initState();
     getCityDistrictApi();
+    ConnectionControlModel().checkConnection(context);
   }
 
   // get city distirct api

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterturizm/product/bloc/mainview_bloc/salepoints_bloc/cubit/salepoints_cubit.dart';
 import 'package:flutterturizm/product/mixin/mainview_mixin/map_mixin/map_mixin.dart';
+import 'package:flutterturizm/product/model/connection_model/connection_model.dart';
 import 'package:flutterturizm/product/model/main_model/map_model/map_model.dart';
 import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
 import 'package:geolocator/geolocator.dart';
@@ -21,6 +22,7 @@ abstract class MainMapBase<T extends StatefulWidget> extends State<T>
     super.initState();
     getCurrentLocation();
     context.read<SalePointsCubit>().fetchSalePoints();
+    ConnectionControlModel().checkConnection(context);
   }
 
   Future<Position> getCurrentLocation() async {

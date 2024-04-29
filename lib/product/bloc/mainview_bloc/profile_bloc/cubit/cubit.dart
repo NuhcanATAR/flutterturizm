@@ -47,8 +47,11 @@ class ProfileCubit extends Cubit<ProfileState> {
       "CITY": city,
       "DISTRICT": district,
     }).then((value) {
-      emit(ProfileEditSuccess(
-          ProfileViewStrings.profileLocationEditSuccessText.value));
+      emit(
+        ProfileEditSuccess(
+          ProfileViewStrings.profileLocationEditSuccessText.value,
+        ),
+      );
     }).catchError((err) {
       emit(ProfileEditError(ProfileViewStrings.profileEditErrorText.value));
     });
@@ -62,11 +65,17 @@ class ProfileCubit extends Cubit<ProfileState> {
     await ProfileDB.USERS.userRef.update({
       "PHONENUMBER": phoneNumber,
     }).then((value) {
-      emit(ProfileEditSuccess(
-          ProfileViewStrings.profilePhoneNumberEditSuccessText.value));
+      emit(
+        ProfileEditSuccess(
+          ProfileViewStrings.profilePhoneNumberEditSuccessText.value,
+        ),
+      );
     }).catchError((err) {
-      emit(ProfileEditError(
-          ProfileViewStrings.profileLocationEditSuccessText.value));
+      emit(
+        ProfileEditError(
+          ProfileViewStrings.profileLocationEditSuccessText.value,
+        ),
+      );
     });
   }
 

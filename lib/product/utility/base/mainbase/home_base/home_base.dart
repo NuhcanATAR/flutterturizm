@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutterturizm/product/model/auth_model/currentuser_model/currentuser_model.dart';
+import 'package:flutterturizm/product/model/connection_model/connection_model.dart';
 import 'package:flutterturizm/product/model/main_model/home_model/home_model.dart';
 import 'package:flutterturizm/product/model/main_model/home_model/homeadverts_model.dart';
 import 'package:flutterturizm/product/router/main_router/home_router/home_router.dart';
@@ -23,6 +24,7 @@ abstract class MainHomeBase<T extends StatefulWidget> extends State<T> {
     super.initState();
     getUserInformation();
     getCityDistrictApi();
+    ConnectionControlModel().checkConnection(context);
   }
 
   // get city distirct api

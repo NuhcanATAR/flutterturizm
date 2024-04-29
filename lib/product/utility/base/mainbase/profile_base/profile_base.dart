@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterturizm/product/mixin/mainview_mixin/profile_mixin/profilebloc_mixin.dart';
 import 'package:flutterturizm/product/model/auth_model/currentuser_model/currentuser_model.dart';
+import 'package:flutterturizm/product/model/connection_model/connection_model.dart';
 import 'package:flutterturizm/product/model/main_model/profile_model/profile_model.dart';
 import 'package:flutterturizm/product/router/main_router/profile_router/profile_router.dart';
 import 'package:flutterturizm/product/utility/database/mainviews_db/home_db/home_db.dart';
@@ -24,6 +25,7 @@ abstract class ProfileBase<T extends StatefulWidget> extends State<T>
     super.initState();
     getUserInformation();
     getCityDistrictApi();
+    ConnectionControlModel().checkConnection(context);
   }
 
   // get city distirct api

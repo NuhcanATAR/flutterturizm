@@ -4,12 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:flutterturizm/feature/auth/login/view/loginloading/loginloading_view.dart';
 import 'package:flutterturizm/feature/auth/logreg/logreg_view.dart';
 import 'package:flutterturizm/product/mixin/logregpass_mixin/login_mixin/loginbloc_mixin.dart';
+import 'package:flutterturizm/product/model/connection_model/connection_model.dart';
 import 'package:flutterturizm/product/utility/dynamicextension/dynamicextension.dart';
 
 abstract class MainLoginBase<T extends StatefulWidget> extends State<T>
     with AuthSingInBlocMixin {
   // view size
   DynamicViewExtensions dynamicViewExtensions = DynamicViewExtensions();
+
+  @override
+  void initState() {
+    super.initState();
+    ConnectionControlModel().checkConnection(context);
+  }
 
   // control auth splash view
   Future<void> controlSplashGoogleAuthUser() async {

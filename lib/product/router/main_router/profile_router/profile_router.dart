@@ -176,7 +176,9 @@ class ProfileRouterService {
 
   // evaluation create view router
   void evaluationCreateViewNavigatorRouter(
-      BuildContext context, MyTickets myTickets) {
+    BuildContext context,
+    MyTickets myTickets,
+  ) {
     Navigator.push(
       context,
       MaterialPageRoute(
