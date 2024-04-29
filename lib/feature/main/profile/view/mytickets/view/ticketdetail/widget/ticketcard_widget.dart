@@ -55,8 +55,7 @@ class MyTicketCardWidget extends StatelessWidget {
                           child: Padding(
                             padding: context.padding.horizontalLow,
                             child: LabelMediumBlackText(
-                              text:
-                                  "Oluşturma: ${myTickets.ticketDate.toString()}",
+                              text: "Tarih: ${myTickets.ticketDate.toString()}",
                               textAlign: TextAlign.right,
                             ),
                           ),

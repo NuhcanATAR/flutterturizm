@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterturizm/feature/main/profile/view/mytickets/view/ticketdetail/widget/evaluationbutton_widget.dart';
 import 'package:flutterturizm/feature/main/profile/view/mytickets/view/ticketdetail/widget/qrcodecard_widget.dart';
+import 'package:flutterturizm/feature/main/profile/view/mytickets/view/ticketdetail/widget/seatnumbercard_widget.dart';
 import 'package:flutterturizm/feature/main/profile/view/mytickets/view/ticketdetail/widget/ticketcancelcard_widget.dart';
 import 'package:flutterturizm/feature/main/profile/view/mytickets/view/ticketdetail/widget/ticketcard_widget.dart';
 import 'package:flutterturizm/feature/main/profile/view/mytickets/view/ticketdetail/widget/ticketstatusbarcard_widget.dart';
@@ -54,6 +55,8 @@ class _TicketDetailViewState extends ProfileBase<TicketDetailView> {
             buildTicketCancelCardWidget,
             // ticket status bar card
             buildTikcetStatusBarCardWidget,
+            // seat number
+            buildSeatNumberCardWidget,
             // ticket card
             buildTicketCardWidget,
             // qr code
@@ -73,6 +76,12 @@ class _TicketDetailViewState extends ProfileBase<TicketDetailView> {
 
   // ticket status bar card
   Widget get buildTikcetStatusBarCardWidget => TicketStatusBarCardWidget(
+        myTickets: widget.myTickets,
+        dynamicViewExtensions: dynamicViewExtensions,
+      );
+
+  // seat number
+  Widget get buildSeatNumberCardWidget => MyTicketSeatNumberCardWidget(
         myTickets: widget.myTickets,
         dynamicViewExtensions: dynamicViewExtensions,
       );
