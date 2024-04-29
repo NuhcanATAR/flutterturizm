@@ -26,9 +26,9 @@ class _MyTicketsViewState extends ProfileBase<MyTicketsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MainAppColorConstants.backgroundColor,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: MainAppColorConstants.backgroundColor,
+        backgroundColor: Colors.white,
         centerTitle: true,
         elevation: 0,
         leading: GestureDetector(

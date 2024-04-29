@@ -99,5 +99,7 @@ flutter:
     - assets/images/livesupport_img/
     # profile icons
     - assets/icons/profile_icons/
+    # connection error images
+    - assets/images/connectionerror_img/
  
 

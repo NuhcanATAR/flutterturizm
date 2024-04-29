@@ -28,3 +28,13 @@ enum AppLiveSupportImgConstants {
   String get toPng => "assets/images/livesupport_img/$value.png";
   Image get toImg => Image.asset(toPng);
 }
+
+enum AppConnectionErrorImgConstants {
+  connectionErrorImg('connection_img');
+
+  final String value;
+  const AppConnectionErrorImgConstants(this.value);
+
+  String get toPng => "assets/images/connectionerror_img/$value.png";
+  Image get toImg => Image.asset(toPng);
+}

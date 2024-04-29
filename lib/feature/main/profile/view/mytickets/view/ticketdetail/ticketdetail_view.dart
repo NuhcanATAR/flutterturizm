@@ -27,9 +27,9 @@ class _TicketDetailViewState extends ProfileBase<TicketDetailView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MainAppColorConstants.backgroundColor,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
         leading: GestureDetector(
