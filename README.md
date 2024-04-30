@@ -9,7 +9,7 @@
 
 ## Proje Hakkında Daha Fazla Bilgi Edinmek İçin
 
-<b>Proje Hakkında, Veritabanı Diyagramı, Detaylı Ekran Görüntüleri için: </b> <a href="https://firebasestorage.googleapis.com/v0/b/flutterturizmdb.appspot.com/o/FLUTTERTUR%C4%B0ZM.zip?alt=media&token=748fda3a-af06-445b-9150-0fa70de93019"> İNDİR </a>
+<b>Proje Hakkında, Veritabanı Diyagramı, Detaylı Ekran Görüntüleri için: </b> <a href="https://firebasestorage.googleapis.com/v0/b/flutterturizmdb.appspot.com/o/FLUTTERTURIZM.zip?alt=media&token=633a59af-e580-43fb-97f2-7e63aff6ddcb"> İNDİR </a>
 
 
 ## Ekran Görüntüleri
